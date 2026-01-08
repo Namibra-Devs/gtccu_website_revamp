@@ -1,25 +1,61 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { 
+  ChevronDown, 
+  User, 
+  Search, 
+  FileText, 
+  Building, 
+  Users, 
+  Crown,
+  Image as ImageIcon,
+  Newspaper,
+  Briefcase,
+  FileCode,
+  Phone,
+  Home,
+  HelpCircle,
+  DollarSign,
+  TrendingUp,
+  PieChart,
+  Wallet,
+  Star,
+  Shield,
+  ArrowRight,
+  Menu,
+  LogIn,
+  CreditCard,
+  BarChart3
+} from "lucide-react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
+
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRefs = useRef({});
+  const searchRef = useRef(null);
   const controls = useAnimation();
+  const logoControls = useAnimation();
 
+  // Enhanced scroll effect with dynamic blur
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Close dropdowns
       if (
         !Object.values(dropdownRefs.current).some(
           (ref) => ref && ref.contains(event.target)
@@ -27,213 +63,388 @@ export default function Navbar() {
       ) {
         setDropdownOpen(null);
       }
+      // Close search if clicking outside
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Typewriter animation for GTCCU
-  const text = "GTCCU";
+  // Fixed Typewriter animation for GTCCU
   useEffect(() => {
-    const typeAndDelete = async () => {
+    const animateLogo = async () => {
+      const text = "GTCCU";
+      
+      // Initial state
+      await controls.start({
+        width: "0px",
+        transition: { duration: 0 }
+      });
+
       while (true) {
-        // Type animation
+        // Type animation - FULL TEXT
         for (let i = 0; i <= text.length; i++) {
           await controls.start({
-            opacity: 1,
-            transition: { duration: 0.1 },
-            text: text.slice(0, i),
+            width: `${i * 24}px`, // Adjusted width calculation
+            transition: { duration: 0.15 }
           });
-          await new Promise((resolve) => setTimeout(resolve, 200));
+          await new Promise(resolve => setTimeout(resolve, 150));
         }
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Pause at full text
+        
+        // Pause with full text visible
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
         // Delete animation
         for (let i = text.length; i >= 0; i--) {
           await controls.start({
-            opacity: 1,
-            transition: { duration: 0.1 },
-            text: text.slice(0, i),
+            width: `${i * 24}px`,
+            transition: { duration: 0.1 }
           });
-          await new Promise((resolve) => setTimeout(resolve, 100));
+          await new Promise(resolve => setTimeout(resolve, 100));
         }
-        await new Promise((resolve) => setTimeout(resolve, 500)); // Pause before restart
+        
+        // Pause before restart
+        await new Promise(resolve => setTimeout(resolve, 800));
       }
     };
-    typeAndDelete();
-  }, [controls, text]);
+    
+    animateLogo();
+  }, [controls]);
 
+  // Optimized navigation structure with Lucide icons
   const navItems = [
-    { name: "Home", path: "/" },
+    { 
+      name: "Home", 
+      path: "/",
+      icon: <Home size={18} />
+    },
     {
       name: "Join Now",
       id: "join-now",
+      icon: <LogIn size={18} />,
       subItems: [
-        { name: "Make an Enquiry", path: "/join/enquiry" },
-        { name: "Open Account", path: "/join/open" },
+        { 
+          name: "Make an Enquiry", 
+          path: "/join/enquiry", 
+          icon: <FileText size={16} />
+        },
+        { 
+          name: "Open Account", 
+          path: "/join/open", 
+          icon: <User size={16} />
+        },
+        { 
+          name: "Membership Benefits", 
+          path: "/join/benefits", 
+          icon: <Star size={16} />
+        },
       ],
     },
     {
       name: "Services",
       id: "services",
+      icon: <DollarSign size={18} />,
       subItems: [
-        { name: "Loans", path: "/services/loans" },
-        { name: "Investments", path: "/services/investments" },
-        { name: "Shares", path: "/services/shares" },
+        { 
+          name: "Loans & Financing", 
+          path: "/services/loans", 
+          icon: <CreditCard size={16} />
+        },
+        { 
+          name: "Investments", 
+          path: "/services/investments", 
+          icon: <TrendingUp size={16} />
+        },
+        { 
+          name: "Shares", 
+          path: "/services/shares", 
+          icon: <PieChart size={16} />
+        },
+        { 
+          name: "Savings Accounts", 
+          path: "/services/savings", 
+          icon: <Wallet size={16} />
+        },
       ],
     },
     {
-      name: "About Us",
+      name: "About",
       id: "about-us",
+      icon: <Building size={18} />,
       subItems: [
-        { name: "Who We Are", path: "/about/who-we-are" },
-        { name: "Our Team", path: "/about/team" },
-        { name: "Our Board", path: "/about/board" },
-        { name: "Our Bye-laws", path: "/about/byelaws" },
-        { name: "Gallery", path: "/about/gallery" },
+        { 
+          name: "Who We Are", 
+          path: "/about/who-we-are", 
+          icon: <HelpCircle size={16} />
+        },
+        { 
+          name: "Our Team", 
+          path: "/about/team", 
+          icon: <Users size={16} />
+        },
+        { 
+          name: "Our Board", 
+          path: "/about/board", 
+          icon: <Crown size={16} />
+        },
+        { 
+          name: "Gallery", 
+          path: "/about/gallery", 
+          icon: <ImageIcon size={16} />
+        },
       ],
     },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Reports", path: "/reports" },
-    { name: "News", path: "/news" },
-    { name: "Jobs", path: "/jobs" },
-    { name: "Policies", path: "/policies" },
+    {
+      name: "Resources",
+      id: "resources",
+      icon: <BarChart3 size={18} />,
+      subItems: [
+        { 
+          name: "Reports", 
+          path: "/reports", 
+          icon: <FileText size={16} />
+        },
+        { 
+          name: "News", 
+          path: "/news", 
+          icon: <Newspaper size={16} />
+        },
+        { 
+          name: "Jobs", 
+          path: "/jobs", 
+          icon: <Briefcase size={16} />
+        },
+        { 
+          name: "Policies", 
+          path: "/policies", 
+          icon: <Shield size={16} />
+        },
+        { 
+          name: "Bye-laws", 
+          path: "/about/byelaws", 
+          icon: <FileCode size={16} />
+        },
+      ],
+    },
+    { 
+      name: "Contact", 
+      path: "/contact",
+      icon: <Phone size={18} />
+    },
   ];
 
   const handleDropdownToggle = (id) => {
     setDropdownOpen(dropdownOpen === id ? null : id);
+    if (searchOpen) setSearchOpen(false);
   };
 
   const renderDropdownItems = (items) => {
     return items.map((item, index) => (
-      <NavLink
+      <motion.div
         key={index}
-        to={item.path}
-        className="block px-4 py-2 hover:bg-blue-100/50 hover:text-blue-600 transition-colors duration-200"
-        onClick={() => setDropdownOpen(null)}
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: index * 0.05 }}
       >
-        {item.name}
-      </NavLink>
+        <NavLink
+          to={item.path}
+          className="flex items-center gap-3 px-4 py-3 hover:bg-white/20 hover:backdrop-blur-sm text-gray-700 hover:text-blue-600 transition-all duration-200 group"
+          onClick={() => setDropdownOpen(null)}
+        >
+          <div className="text-blue-500">
+            {item.icon}
+          </div>
+          <span className="flex-1">{item.name}</span>
+          <ChevronDown className="transform -rotate-90 opacity-0 group-hover:opacity-100 transition-all duration-200 text-gray-400" size={16} />
+        </NavLink>
+      </motion.div>
     ));
   };
 
   return (
-    <nav
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-lg text-blue-900"
-          : "bg-transparent text-white"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        {/* Logo + Company Name */}
-        <NavLink to="/" className="flex items-center space-x-3">
-          <motion.img
-            src="/images/gtccu-logo.PNG"
-            alt="GTCCU Logo"
-            className="h-10 w-10"
-            whileHover={{ scale: 1.1, rotate: 10 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          />
-          <motion.span
-            className={`text-2xl font-bold tracking-tight ${
-              scrolled ? "text-blue-900" : "text-white"
-            }`}
-            animate={controls}
-            initial={{ text: "", opacity: 0 }}
-          >
-            {text}
-          </motion.span>
-        </NavLink>
-
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-8 font-medium">
-          {navItems.map((item, index) => (
-            <li
-              key={index}
-              className="relative"
-              ref={(el) => (dropdownRefs.current[item.id || index] = el)}
-            >
-              {item.subItems ? (
-                <>
-                  <button
-                    className={`flex items-center gap-1 transition-colors duration-200 ${
-                      scrolled ? "hover:text-blue-600" : "hover:text-blue-200"
-                    }`}
-                    onClick={() => handleDropdownToggle(item.id)}
-                    aria-expanded={dropdownOpen === item.id}
-                    aria-controls={`dropdown-${item.id}`}
+    <>
+      <nav
+        className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/10 backdrop-blur-xl shadow-lg shadow-blue-500/5 border-b border-white/20"
+            : "bg-gradient-to-b from-black/20 via-transparent to-transparent"
+        }`}
+      >
+        {/* Background Blur Layer */}
+        <div className={`absolute inset-0 backdrop-blur-xl transition-all duration-500 ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`} />
+        
+        <div className="relative max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            {/* Logo + Branding */}
+            <NavLink to="/" className="flex items-center space-x-4 z-10 group">
+              <motion.div
+                className="relative"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full blur opacity-50" />
+                <motion.img
+                  src="/images/gtccu-logo.PNG"
+                  alt="GTCCU Logo"
+                  className="relative h-12 w-12 rounded-full border-2 border-white/30"
+                  animate={{ 
+                    rotate: scrolled ? 0 : 360,
+                    scale: scrolled ? 1 : 1.1 
+                  }}
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.div>
+              
+              <div className="flex">
+                <div className="relative">
+                  <motion.div
+                    className="text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent overflow-hidden whitespace-nowrap"
+                    animate={controls}
+                    initial={{ width: 0 }}
+                    style={{ 
+                      minWidth: "120px",
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 800,
+                      letterSpacing: "0.05em"
+                    }}
                   >
-                    {item.name}
-                    <motion.div
-                      animate={{ rotate: dropdownOpen === item.id ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    >
-                      <ChevronDown size={16} />
-                    </motion.div>
-                  </button>
-                  <AnimatePresence>
-                    {dropdownOpen === item.id && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-md text-gray-800 shadow-xl rounded-lg py-2 z-50 border-t-2 border-blue-300"
-                        id={`dropdown-${item.id}`}
-                        ref={(el) => (dropdownRefs.current[item.id] = el)}
+                    GTCCU
+                  </motion.div>
+                 
+                </div>
+             
+              </div>
+            </NavLink>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1">
+              
+              {/* Navigation Items */}
+              <ul className="flex items-center gap-1">
+                {navItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className="relative"
+                    ref={(el) => (dropdownRefs.current[item.id || index] = el)}
+                  >
+                    {item.subItems ? (
+                      <>
+                        <motion.button
+                          className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                            dropdownOpen === item.id
+                              ? "bg-white/20 backdrop-blur-sm text-white"
+                              : "text-white/90 hover:bg-white/10 hover:text-white"
+                          }`}
+                          onClick={() => handleDropdownToggle(item.id)}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {item.icon}
+                          <span className="font-medium">{item.name}</span>
+                          <motion.div
+                            animate={{ rotate: dropdownOpen === item.id ? 180 : 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <ChevronDown size={16} />
+                          </motion.div>
+                        </motion.button>
+                        
+                        <AnimatePresence>
+                          {dropdownOpen === item.id && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                              transition={{ duration: 0.2, ease: "easeOut" }}
+                              className="absolute left-1/2 transform -translate-x-1/2 mt-3 min-w-[280px] bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-xl shadow-2xl shadow-blue-500/10 rounded-2xl py-3 z-50 border border-white/20 overflow-hidden"
+                            >
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400" />
+                              <div className="flex items-center gap-2 text-sm font-semibold text-gray-500 px-4 py-2 mb-2">
+                                {item.icon}
+                                <span>{item.name}</span>
+                              </div>
+                              {renderDropdownItems(item.subItems)}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <NavLink
+                        to={item.path}
+                        className={({ isActive }) =>
+                          `relative flex items-center gap-2 px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                            isActive
+                              ? "text-white"
+                              : "text-white/80 hover:text-white"
+                          }`
+                        }
                       >
-                        {renderDropdownItems(item.subItems)}
-                      </motion.div>
+                        {({ isActive }) => (
+                          <>
+                            {item.icon}
+                            <span className="relative z-10">{item.name}</span>
+                            {isActive && (
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 backdrop-blur-sm rounded-full border border-white/30"
+                                layoutId="navbar-active"
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                              />
+                            )}
+                          </>
+                        )}
+                      </NavLink>
                     )}
-                  </AnimatePresence>
-                </>
-              ) : (
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `transition-colors duration-200 ${
-                      scrolled ? "hover:text-blue-600" : "hover:text-blue-200"
-                    } ${
-                      isActive
-                        ? scrolled
-                          ? "text-blue-600 underline underline-offset-4"
-                          : "text-blue-200 underline underline-offset-4"
-                        : ""
-                    }`
-                  }
+                  </li>
+                ))}
+              </ul>
+
+             
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              className="lg:hidden relative p-3 rounded-full bg-white/10 backdrop-blur-sm z-10"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle menu"
+            >
+              <div className="relative w-6 h-6">
+                <motion.div
+                  className="absolute inset-0"
+                  animate={mobileOpen ? { rotate: 45 } : { rotate: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {item.name}
-                </NavLink>
-              )}
-            </li>
-          ))}
-        </ul>
+                  <div className={`h-0.5 w-full rounded-full transition-all duration-300 ${
+                    mobileOpen ? 'bg-white translate-y-2' : 'bg-white/90'
+                  }`} />
+                </motion.div>
+                <motion.div
+                  className="absolute inset-0"
+                  animate={mobileOpen ? { rotate: -45 } : { rotate: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className={`h-0.5 w-full rounded-full transition-all duration-300 ${
+                    mobileOpen ? 'bg-white -translate-y-2' : 'bg-white/90'
+                  }`} />
+                </motion.div>
+              </div>
+            </motion.button>
+          </div>
+        </div>
+      </nav>
 
-        {/* Mobile Button */}
-        <button
-          className={`md:hidden transition-colors duration-200 p-2 ${
-            scrolled
-              ? "text-blue-900 hover:text-blue-600"
-              : "text-white hover:text-blue-200"
-          }`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle mobile menu"
-        >
-          <motion.div
-            animate={mobileOpen ? { rotate: 90 } : { rotate: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.div>
-        </button>
-
-        {/* Mobile Menu */}
-        <MobileMenu
-          isOpen={mobileOpen}
-          onClose={() => setMobileOpen(false)}
-          navItems={navItems}
-        />
-      </div>
-    </nav>
+      {/* Separate Mobile Navigation Component */}
+      <MobileMenu 
+        isOpen={mobileOpen} 
+        onClose={() => setMobileOpen(false)}
+        navItems={navItems}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
+    </>
   );
 }
