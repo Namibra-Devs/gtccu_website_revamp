@@ -405,34 +405,51 @@ export default function Navbar() {
              
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              className="lg:hidden relative p-3 rounded-full bg-white/10 backdrop-blur-sm z-10"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle menu"
-            >
-              <div className="relative w-6 h-6">
-                <motion.div
-                  className="absolute inset-0"
-                  animate={mobileOpen ? { rotate: 45 } : { rotate: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className={`h-0.5 w-full rounded-full transition-all duration-300 ${
-                    mobileOpen ? 'bg-white translate-y-2' : 'bg-white/90'
-                  }`} />
-                </motion.div>
-                <motion.div
-                  className="absolute inset-0"
-                  animate={mobileOpen ? { rotate: -45 } : { rotate: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className={`h-0.5 w-full rounded-full transition-all duration-300 ${
-                    mobileOpen ? 'bg-white -translate-y-2' : 'bg-white/90'
-                  }`} />
-                </motion.div>
-              </div>
-            </motion.button>
+        {/* Mobile Menu Button */}
+<motion.button
+  className="lg:hidden relative p-3 rounded-full bg-white/10 backdrop-blur-sm z-10"
+  onClick={() => setMobileOpen(!mobileOpen)}
+  whileTap={{ scale: 0.9 }}
+  aria-label="Toggle menu"
+>
+  <div className="relative w-7 h-6 flex flex-col justify-between">
+    
+    {/* Top Line – Long */}
+    <motion.span
+      className="block h-0.5 rounded-full bg-white"
+      animate={
+        mobileOpen
+          ? { rotate: 45, y: 9, width: "100%" }
+          : { rotate: 0, y: 0, width: "100%" }
+      }
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    />
+
+    {/* Middle Line – Short */}
+    <motion.span
+      className="block h-0.5 rounded-full bg-white/80 mx-auto"
+      animate={
+        mobileOpen
+          ? { opacity: 0, width: "0%" }
+          : { opacity: 1, width: "60%" }
+      }
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+    />
+
+    {/* Bottom Line – Long */}
+    <motion.span
+      className="block h-0.5 rounded-full bg-white"
+      animate={
+        mobileOpen
+          ? { rotate: -45, y: -9, width: "100%" }
+          : { rotate: 0, y: 0, width: "100%" }
+      }
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    />
+
+  </div>
+</motion.button>
+
           </div>
         </div>
       </nav>

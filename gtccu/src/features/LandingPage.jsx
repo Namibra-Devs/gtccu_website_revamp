@@ -55,7 +55,7 @@ export default function LandingPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroContent.length);
-    }, 5000); // 5 seconds per slide
+    }, 7000); // 5 seconds per slide
     return () => clearInterval(interval);
   }, []);
 
@@ -198,138 +198,16 @@ export default function LandingPage() {
                   {heroContent[current].subtitle}
                 </motion.p>
 
-                {/* CTA Button */}
-                <motion.div
-                  className="pt-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.8 }}
-                >
-                  <button 
-                    className={`group relative px-10 py-5 bg-gradient-to-r ${heroContent[current].buttonColor} text-white font-bold text-lg md:text-xl rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105`}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="relative flex items-center justify-center gap-3">
-                      {heroContent[current].cta}
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5 }}
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                  </button>
-                </motion.div>
+                
 
-                {/* Quick Stats */}
-                <motion.div
-                  className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 max-w-3xl mx-auto"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1, duration: 0.8 }}
-                >
-                  {[
-                    { value: "25K+", label: "Active Members", icon: "👥" },
-                    { value: "₵75M+", label: "Assets Managed", icon: "💰" },
-                    { value: "98.7%", label: "Satisfaction Rate", icon: "⭐" },
-                    { value: "24/7", label: "Digital Banking", icon: "📱" },
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      className="text-center p-4 md:p-5 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105"
-                    >
-                      <div className="text-2xl mb-1">{stat.icon}</div>
-                      <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-white/70 mt-1">{stat.label}</div>
-                    </div>
-                  ))}
-                </motion.div>
+                
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Navigation Arrows */}
-          <div className="absolute inset-y-0 left-4 md:left-8 flex items-center">
-            <button
-              onClick={goToPrev}
-              className="p-3 md:p-4 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={24} />
-            </button>
-          </div>
-          
-          <div className="absolute inset-y-0 right-4 md:right-8 flex items-center">
-            <button
-              onClick={goToNext}
-              className="p-3 md:p-4 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-              aria-label="Next slide"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+        
 
-          {/* Bottom Controls */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col md:flex-row items-center gap-6">
-            {/* Slide Dots */}
-            <div className="flex items-center gap-3">
-              {heroContent.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className="relative group"
-                  aria-label={`Go to slide ${index + 1}`}
-                >
-                  <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === current
-                      ? "bg-white scale-125"
-                      : "bg-white/40 group-hover:bg-white/60"
-                  }`} />
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <div className="bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                      {heroContent[index].title.split(" ")[0]}
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            {/* Video Controls */}
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-full px-4 py-2 border border-white/20">
-              <button
-                onClick={togglePlay}
-                className="p-2 hover:bg-white/20 rounded-full transition-colors"
-                aria-label={isPlaying ? "Pause video" : "Play video"}
-              >
-                {isPlaying ? (
-                  <Pause size={20} className="text-white" />
-                ) : (
-                  <Play size={20} className="text-white" />
-                )}
-              </button>
-              
-              <div className="w-px h-4 bg-white/30" />
-              
-              <button
-                onClick={toggleMute}
-                className="p-2 hover:bg-white/20 rounded-full transition-colors"
-                aria-label={isMuted ? "Unmute video" : "Mute video"}
-              >
-                {isMuted ? (
-                  <VolumeX size={20} className="text-white" />
-                ) : (
-                  <Volume2 size={20} className="text-white" />
-                )}
-              </button>
-            </div>
-
-            {/* Current Slide Indicator */}
-            <div className="text-white/70 text-sm font-medium hidden md:block">
-              {String(current + 1).padStart(2, '0')} / {String(heroContent.length).padStart(2, '0')}
-            </div>
-          </div>
+         
 
           {/* Scroll Indicator */}
           <motion.div
@@ -337,7 +215,7 @@ export default function LandingPage() {
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
           >
-            <span className="text-sm text-white/60 font-medium">Explore</span>
+            <span className="text-sm text-white/60 font-medium">GTCCU</span>
             <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent" />
           </motion.div>
         </div>
