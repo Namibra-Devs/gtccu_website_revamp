@@ -193,7 +193,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-0 h-screen w-screen bg-gradient-to-br from-blue-900/95 via-blue-800/90 to-indigo-900/95 backdrop-blur-2xl text-white z-50 md:hidden overflow-y-auto"
+            className="fixed inset-0 h-screen w-screen bg-gradient-to-br from-blue-900/95 via-blue-800/90 to-blue-900/95 backdrop-blur-2xl text-white z-50 md:hidden overflow-y-auto"
             style={{
               backgroundImage: `
                 linear-gradient(135deg, rgba(30, 64, 175, 0.95) 0%, rgba(79, 70, 229, 0.95) 100%),
@@ -235,7 +235,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 }}
                 >
-                  <span className="text-3xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                     GTCCU
                   </span>
                   <span className="text-sm text-white/60 font-light tracking-widest">
@@ -253,7 +253,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
                   WebkitBackdropFilter: 'blur(10px)',
                 }}
               >
-                <X size={28} />
+                <X size={25} />
               </motion.button>
             </motion.div>
 
@@ -356,78 +356,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
               ))}
             </motion.ul>
 
-            {/* CTA Button with glass effect */}
-            <motion.div
-              className="px-6 pb-8"
-              variants={circularItemVariants}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <Link
-                to="/join/open"
-                onClick={onClose}
-                className="group flex items-center justify-center gap-3 w-full py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02]"
-                style={{
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(6, 182, 212, 0.8) 100%)',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 0 0 1px rgba(255,255,255,0.1)'
-                }}
-              >
-                <User size={22} className="text-white" />
-                <span className="text-xl font-bold text-white">Open Account</span>
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                  className="text-white"
-                >
-                  <ArrowRight size={22} />
-                </motion.div>
-              </Link>
-            </motion.div>
-
-            {/* Quick Links with glass effect */}
-            <motion.div
-              className="px-6 pb-8"
-              variants={circularItemVariants}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 }}
-            >
-              <h3 className="text-sm font-semibold text-white/60 mb-4 uppercase tracking-wider px-2">
-                Quick Links
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { name: "Loans", path: "/services/loans", icon: <CreditCard size={20} /> },
-                  { name: "News", path: "/news", icon: <Newspaper size={20} /> },
-                  { name: "Jobs", path: "/jobs", icon: <Briefcase size={20} /> },
-                  { name: "Contact", path: "/contact", icon: <Phone size={20} /> },
-                ].map((link, index) => (
-                  <Link
-                    key={index}
-                    to={link.path}
-                    onClick={onClose}
-                    className="flex flex-col items-center p-4 rounded-xl transition-all duration-300 hover:scale-105 group"
-                    style={{
-                      backdropFilter: 'blur(15px)',
-                      WebkitBackdropFilter: 'blur(15px)',
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                      border: '1px solid rgba(255,255,255,0.15)'
-                    }}
-                  >
-                    <div className="text-blue-300 group-hover:text-blue-200 mb-2 transition-colors duration-300">
-                      {link.icon}
-                    </div>
-                    <span className="text-sm font-medium text-white group-hover:text-blue-100">
-                      {link.name}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
+         
           </motion.div>
         </>
       )}

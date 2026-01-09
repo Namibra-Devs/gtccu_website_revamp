@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { 
-  ChevronDown, 
-  User, 
-  Search, 
-  FileText, 
-  Building, 
-  Users, 
+import {
+  ChevronDown,
+  User,
+  Search,
+  FileText,
+  Building,
+  Users,
   Crown,
   Image as ImageIcon,
   Newspaper,
@@ -25,7 +25,7 @@ import {
   Menu,
   LogIn,
   CreditCard,
-  BarChart3
+  BarChart3,
 } from "lucide-react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 
@@ -76,11 +76,11 @@ export default function Navbar() {
   useEffect(() => {
     const animateLogo = async () => {
       const text = "GTCCU";
-      
+
       // Initial state
       await controls.start({
         width: "0px",
-        transition: { duration: 0 }
+        transition: { duration: 0 },
       });
 
       while (true) {
@@ -88,57 +88,57 @@ export default function Navbar() {
         for (let i = 0; i <= text.length; i++) {
           await controls.start({
             width: `${i * 24}px`, // Adjusted width calculation
-            transition: { duration: 0.15 }
+            transition: { duration: 0.15 },
           });
-          await new Promise(resolve => setTimeout(resolve, 150));
+          await new Promise((resolve) => setTimeout(resolve, 150));
         }
-        
+
         // Pause with full text visible
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
         // Delete animation
         for (let i = text.length; i >= 0; i--) {
           await controls.start({
             width: `${i * 24}px`,
-            transition: { duration: 0.1 }
+            transition: { duration: 0.1 },
           });
-          await new Promise(resolve => setTimeout(resolve, 100));
+          await new Promise((resolve) => setTimeout(resolve, 100));
         }
-        
+
         // Pause before restart
-        await new Promise(resolve => setTimeout(resolve, 800));
+        await new Promise((resolve) => setTimeout(resolve, 800));
       }
     };
-    
+
     animateLogo();
   }, [controls]);
 
   // Optimized navigation structure with Lucide icons
   const navItems = [
-    { 
-      name: "Home", 
+    {
+      name: "Home",
       path: "/",
-      icon: <Home size={18} />
+      icon: <Home size={18} />,
     },
     {
       name: "Join Now",
       id: "join-now",
       icon: <LogIn size={18} />,
       subItems: [
-        { 
-          name: "Make an Enquiry", 
-          path: "/join/enquiry", 
-          icon: <FileText size={16} />
+        {
+          name: "Make an Enquiry",
+          path: "/join/enquiry",
+          icon: <FileText size={16} />,
         },
-        { 
-          name: "Open Account", 
-          path: "/join/open", 
-          icon: <User size={16} />
+        {
+          name: "Open Account",
+          path: "/join/open",
+          icon: <User size={16} />,
         },
-        { 
-          name: "Membership Benefits", 
-          path: "/join/benefits", 
-          icon: <Star size={16} />
+        {
+          name: "Membership Benefits",
+          path: "/join/benefits",
+          icon: <Star size={16} />,
         },
       ],
     },
@@ -147,25 +147,25 @@ export default function Navbar() {
       id: "services",
       icon: <DollarSign size={18} />,
       subItems: [
-        { 
-          name: "Loans & Financing", 
-          path: "/services/loans", 
-          icon: <CreditCard size={16} />
+        {
+          name: "Loans & Financing",
+          path: "/services/loans",
+          icon: <CreditCard size={16} />,
         },
-        { 
-          name: "Investments", 
-          path: "/services/investments", 
-          icon: <TrendingUp size={16} />
+        {
+          name: "Investments",
+          path: "/services/investments",
+          icon: <TrendingUp size={16} />,
         },
-        { 
-          name: "Shares", 
-          path: "/services/shares", 
-          icon: <PieChart size={16} />
+        {
+          name: "Shares",
+          path: "/services/shares",
+          icon: <PieChart size={16} />,
         },
-        { 
-          name: "Savings Accounts", 
-          path: "/services/savings", 
-          icon: <Wallet size={16} />
+        {
+          name: "Savings Accounts",
+          path: "/services/savings",
+          icon: <Wallet size={16} />,
         },
       ],
     },
@@ -174,25 +174,25 @@ export default function Navbar() {
       id: "about-us",
       icon: <Building size={18} />,
       subItems: [
-        { 
-          name: "Who We Are", 
-          path: "/about/who-we-are", 
-          icon: <HelpCircle size={16} />
+        {
+          name: "Who We Are",
+          path: "/about/who-we-are",
+          icon: <HelpCircle size={16} />,
         },
-        { 
-          name: "Our Team", 
-          path: "/about/team", 
-          icon: <Users size={16} />
+        {
+          name: "Our Team",
+          path: "/about/team",
+          icon: <Users size={16} />,
         },
-        { 
-          name: "Our Board", 
-          path: "/about/board", 
-          icon: <Crown size={16} />
+        {
+          name: "Our Board",
+          path: "/about/board",
+          icon: <Crown size={16} />,
         },
-        { 
-          name: "Gallery", 
-          path: "/about/gallery", 
-          icon: <ImageIcon size={16} />
+        {
+          name: "Gallery",
+          path: "/about/gallery",
+          icon: <ImageIcon size={16} />,
         },
       ],
     },
@@ -201,37 +201,37 @@ export default function Navbar() {
       id: "resources",
       icon: <BarChart3 size={18} />,
       subItems: [
-        { 
-          name: "Reports", 
-          path: "/reports", 
-          icon: <FileText size={16} />
+        {
+          name: "Reports",
+          path: "/reports",
+          icon: <FileText size={16} />,
         },
-        { 
-          name: "News", 
-          path: "/news", 
-          icon: <Newspaper size={16} />
+        {
+          name: "News",
+          path: "/news",
+          icon: <Newspaper size={16} />,
         },
-        { 
-          name: "Jobs", 
-          path: "/jobs", 
-          icon: <Briefcase size={16} />
+        {
+          name: "Jobs",
+          path: "/jobs",
+          icon: <Briefcase size={16} />,
         },
-        { 
-          name: "Policies", 
-          path: "/policies", 
-          icon: <Shield size={16} />
+        {
+          name: "Policies",
+          path: "/policies",
+          icon: <Shield size={16} />,
         },
-        { 
-          name: "Bye-laws", 
-          path: "/about/byelaws", 
-          icon: <FileCode size={16} />
+        {
+          name: "Bye-laws",
+          path: "/about/byelaws",
+          icon: <FileCode size={16} />,
         },
       ],
     },
-    { 
-      name: "Contact", 
+    {
+      name: "Contact",
       path: "/contact",
-      icon: <Phone size={18} />
+      icon: <Phone size={18} />,
     },
   ];
 
@@ -253,11 +253,12 @@ export default function Navbar() {
           className="flex items-center gap-3 px-4 py-3 hover:bg-white/20 hover:backdrop-blur-sm text-gray-700 hover:text-blue-600 transition-all duration-200 group"
           onClick={() => setDropdownOpen(null)}
         >
-          <div className="text-blue-500">
-            {item.icon}
-          </div>
+          <div className="text-blue-500">{item.icon}</div>
           <span className="flex-1">{item.name}</span>
-          <ChevronDown className="transform -rotate-90 opacity-0 group-hover:opacity-100 transition-all duration-200 text-gray-400" size={16} />
+          <ChevronDown
+            className="transform -rotate-90 opacity-0 group-hover:opacity-100 transition-all duration-200 text-gray-400"
+            size={16}
+          />
         </NavLink>
       </motion.div>
     ));
@@ -266,17 +267,19 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+        className={`fixed w-full top-0 z-50 transition-all duration-500 overflow-x-none ${
           scrolled
             ? "bg-white/10 backdrop-blur-xl shadow-lg shadow-blue-500/5 border-b border-white/20"
             : "bg-gradient-to-b from-black/20 via-transparent to-transparent"
         }`}
       >
         {/* Background Blur Layer */}
-        <div className={`absolute inset-0 backdrop-blur-xl transition-all duration-500 ${
-          scrolled ? "opacity-100" : "opacity-0"
-        }`} />
-        
+        <div
+          className={`absolute inset-0 backdrop-blur-xl transition-all duration-500 ${
+            scrolled ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
         <div className="relative max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             {/* Logo + Branding */}
@@ -291,38 +294,35 @@ export default function Navbar() {
                   src="/images/gtccu-logo.PNG"
                   alt="GTCCU Logo"
                   className="relative h-12 w-12 rounded-full border-2 border-white/30"
-                  animate={{ 
+                  animate={{
                     rotate: scrolled ? 0 : 360,
-                    scale: scrolled ? 1 : 1.1 
+                    scale: scrolled ? 1 : 1.1,
                   }}
                   transition={{ duration: 0.5 }}
                 />
               </motion.div>
-              
+
               <div className="flex">
                 <div className="relative">
                   <motion.div
                     className="text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent overflow-hidden whitespace-nowrap"
                     animate={controls}
                     initial={{ width: 0 }}
-                    style={{ 
+                    style={{
                       minWidth: "120px",
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 800,
-                      letterSpacing: "0.05em"
+                      letterSpacing: "0.05em",
                     }}
                   >
                     GTCCU
                   </motion.div>
-                 
                 </div>
-             
               </div>
             </NavLink>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              
               {/* Navigation Items */}
               <ul className="flex items-center gap-1">
                 {navItems.map((item, index) => (
@@ -346,13 +346,15 @@ export default function Navbar() {
                           {item.icon}
                           <span className="font-medium">{item.name}</span>
                           <motion.div
-                            animate={{ rotate: dropdownOpen === item.id ? 180 : 0 }}
+                            animate={{
+                              rotate: dropdownOpen === item.id ? 180 : 0,
+                            }}
                             transition={{ duration: 0.3 }}
                           >
                             <ChevronDown size={16} />
                           </motion.div>
                         </motion.button>
-                        
+
                         <AnimatePresence>
                           {dropdownOpen === item.id && (
                             <motion.div
@@ -391,7 +393,11 @@ export default function Navbar() {
                               <motion.div
                                 className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 backdrop-blur-sm rounded-full border border-white/30"
                                 layoutId="navbar-active"
-                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 300,
+                                  damping: 30,
+                                }}
                               />
                             )}
                           </>
@@ -401,62 +407,57 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-
-             
             </div>
 
-        {/* Mobile Menu Button */}
-<motion.button
-  className="lg:hidden relative p-3 rounded-full bg-white/10 backdrop-blur-sm z-10"
-  onClick={() => setMobileOpen(!mobileOpen)}
-  whileTap={{ scale: 0.9 }}
-  aria-label="Toggle menu"
->
-  <div className="relative w-7 h-6 flex flex-col justify-between">
-    
-    {/* Top Line – Long */}
-    <motion.span
-      className="block h-0.5 rounded-full bg-white"
-      animate={
-        mobileOpen
-          ? { rotate: 45, y: 9, width: "100%" }
-          : { rotate: 0, y: 0, width: "100%" }
-      }
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    />
+            {/* Mobile Menu Button */}
+            <motion.button
+              className="lg:hidden relative p-3 rounded-full bg-white/10 backdrop-blur-sm z-10"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle menu"
+            >
+              <div className="relative w-7 h-7 flex flex-col justify-between">
+                {/* Top Line – Long */}
+                <motion.span
+                  className="block h-0.5 rounded-full bg-white"
+                  animate={
+                    mobileOpen
+                      ? { rotate: 45, y: 9, width: "100%" }
+                      : { rotate: 0, y: 0, width: "100%" }
+                  }
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
 
-    {/* Middle Line – Short */}
-    <motion.span
-      className="block h-0.5 rounded-full bg-white/80 mx-auto"
-      animate={
-        mobileOpen
-          ? { opacity: 0, width: "0%" }
-          : { opacity: 1, width: "60%" }
-      }
-      transition={{ duration: 0.2, ease: "easeInOut" }}
-    />
+                {/* Middle Line – Short */}
+                <motion.span
+                  className="block h-0.5 rounded-full bg-white/80 mx-auto"
+                  animate={
+                    mobileOpen
+                      ? { opacity: 0, width: "0%" }
+                      : { opacity: 1, width: "60%" }
+                  }
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                />
 
-    {/* Bottom Line – Long */}
-    <motion.span
-      className="block h-0.5 rounded-full bg-white"
-      animate={
-        mobileOpen
-          ? { rotate: -45, y: -9, width: "100%" }
-          : { rotate: 0, y: 0, width: "100%" }
-      }
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    />
-
-  </div>
-</motion.button>
-
+                {/* Bottom Line – Long */}
+                <motion.span
+                  className="block h-0.5 rounded-full bg-white"
+                  animate={
+                    mobileOpen
+                      ? { rotate: -45, y: -9, width: "100%" }
+                      : { rotate: 0, y: 0, width: "100%" }
+                  }
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+              </div>
+            </motion.button>
           </div>
         </div>
       </nav>
 
       {/* Separate Mobile Navigation Component */}
-      <MobileMenu 
-        isOpen={mobileOpen} 
+      <MobileMenu
+        isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
         navItems={navItems}
         searchQuery={searchQuery}
