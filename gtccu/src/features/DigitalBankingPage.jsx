@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Smartphone,
   Shield,
@@ -25,9 +25,9 @@ import {
   RefreshCw,
   Eye,
   ShieldCheck,
-  Smartphone as PhoneIcon
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+  Smartphone as PhoneIcon,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function DigitalBankingPage() {
   const [hoveredFeature, setHoveredFeature] = useState(null);
@@ -38,26 +38,29 @@ export default function DigitalBankingPage() {
     {
       id: 1,
       title: "Instant Transfers",
-      description: "Send money to any bank in Ghana instantly. No delays, no hidden fees.",
+      description:
+        "Send money to any bank in Ghana instantly. No delays, no hidden fees.",
       icon: <Zap className="text-blue-600" size={24} />,
       color: "from-blue-500 to-cyan-500",
-      position: "left"
+      position: "left",
     },
     {
       id: 2,
       title: "Bill Payments",
-      description: "Pay utilities, school fees, and subscriptions with one tap.",
+      description:
+        "Pay utilities, school fees, and subscriptions with one tap.",
       icon: <CreditCard className="text-purple-600" size={24} />,
       color: "from-purple-500 to-pink-500",
-      position: "left"
+      position: "left",
     },
     {
       id: 3,
       title: "Budget Tracking",
-      description: "Smart insights and spending analysis to help you save more.",
+      description:
+        "Smart insights and spending analysis to help you save more.",
       icon: <BarChart className="text-emerald-600" size={24} />,
       color: "from-emerald-500 to-teal-500",
-      position: "left"
+      position: "left",
     },
     {
       id: 4,
@@ -65,7 +68,7 @@ export default function DigitalBankingPage() {
       description: "Round-the-clock customer support via chat, call, or email.",
       icon: <Clock className="text-amber-600" size={24} />,
       color: "from-amber-500 to-orange-500",
-      position: "right"
+      position: "right",
     },
     {
       id: 5,
@@ -73,40 +76,42 @@ export default function DigitalBankingPage() {
       description: "Manage all your GTCCU accounts from a single dashboard.",
       icon: <Wallet className="text-rose-600" size={24} />,
       color: "from-rose-500 to-red-500",
-      position: "right"
+      position: "right",
     },
     {
       id: 6,
       title: "Secure Access",
-      description: "Biometric login and two-factor authentication for maximum security.",
+      description:
+        "Biometric login and two-factor authentication for maximum security.",
       icon: <ShieldCheck className="text-indigo-600" size={24} />,
       color: "from-indigo-500 to-violet-500",
-      position: "right"
-    }
+      position: "right",
+    },
   ];
 
   // App features for the second section
   const appFeatures = [
     {
       title: "Biometric Security",
-      description: "Login with fingerprint or face recognition for ultimate security",
-      icon: <Key size={20} />
+      description:
+        "Login with fingerprint or face recognition for ultimate security",
+      icon: <Key size={20} />,
     },
     {
       title: "Real-time Notifications",
       description: "Instant alerts for all transactions and account activities",
-      icon: <Bell size={20} />
+      icon: <Bell size={20} />,
     },
     {
       title: "Quick Balance",
       description: "View your balance without logging in (optional)",
-      icon: <Eye size={20} />
+      icon: <Eye size={20} />,
     },
     {
       title: "Auto Updates",
       description: "App updates automatically with new features",
-      icon: <RefreshCw size={20} />
-    }
+      icon: <RefreshCw size={20} />,
+    },
   ];
 
   // Phone mockup images
@@ -116,15 +121,15 @@ export default function DigitalBankingPage() {
       src: "/images/phone1.png",
       alt: "GTCCU Mobile App Dashboard",
       title: "Dashboard View",
-      description: "Complete overview of your finances"
+      description: "Complete overview of your finances",
     },
     {
       id: 2,
       src: "/images/phone2.png",
       alt: "GTCCU Mobile App Transactions",
       title: "Transactions",
-      description: "Easy tracking and management"
-    }
+      description: "Easy tracking and management",
+    },
   ];
 
   // App stats
@@ -132,7 +137,7 @@ export default function DigitalBankingPage() {
     { value: "4.9★", label: "App Store Rating", color: "text-yellow-500" },
     { value: "50K+", label: "Active Users", color: "text-blue-500" },
     { value: "99.9%", label: "Uptime", color: "text-emerald-500" },
-    { value: "<2s", label: "Avg. Load Time", color: "text-purple-500" }
+    { value: "<2s", label: "Avg. Load Time", color: "text-purple-500" },
   ];
 
   return (
@@ -146,14 +151,13 @@ export default function DigitalBankingPage() {
             alt="Digital banking technology"
             className="w-full h-full object-cover"
             onError={(e) => {
-              e.target.style.display = 'none';
-              const fallback = document.createElement('div');
-              fallback.className = 'absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900';
+              e.target.style.display = "none";
+              const fallback = document.createElement("div");
+              fallback.className =
+                "absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900";
               e.target.parentNode.appendChild(fallback);
             }}
           />
-          
-          
         </div>
 
         {/* Animated Elements */}
@@ -169,8 +173,6 @@ export default function DigitalBankingPage() {
             className="absolute bottom-1/4 right-1/4 w-80 h-80 border border-white/10 rounded-full"
           />
         </div>
-
-        
       </section>
 
       {/* Phone with Feature Cards Section */}
@@ -183,11 +185,16 @@ export default function DigitalBankingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything You Need in One App
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+              Everything{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-[#1A1C47] bg-clip-text text-transparent">
+                You Need in One App
+              </span>
             </h2>
+
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our mobile app combines powerful features with elegant design for the perfect banking experience.
+              Our mobile app combines powerful features with elegant design for
+              the perfect banking experience.
             </p>
           </motion.div>
 
@@ -209,16 +216,13 @@ export default function DigitalBankingPage() {
                     alt="GTCCU App Interface"
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentNode.className += ' bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900';
+                      e.target.style.display = "none";
+                      e.target.parentNode.className +=
+                        " bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900";
                     }}
                   />
-
                 </div>
-               
               </div>
-              
-           
             </motion.div>
 
             {/* Feature Cards Grid - 3 left, 3 right of phone */}
@@ -226,7 +230,7 @@ export default function DigitalBankingPage() {
               {/* Left Column Features */}
               <div className="space-y-8">
                 {phoneFeatures
-                  .filter(feature => feature.position === 'left')
+                  .filter((feature) => feature.position === "left")
                   .map((feature, index) => (
                     <motion.div
                       key={feature.id}
@@ -237,24 +241,31 @@ export default function DigitalBankingPage() {
                       onMouseEnter={() => setHoveredFeature(feature.id)}
                       onMouseLeave={() => setHoveredFeature(null)}
                       className={`relative group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-gray-100 transition-all duration-500 lg:ml-auto lg:mr-6 max-w-[360px] right-0 lg:right-50 mb-4 ${
-                        hoveredFeature === feature.id ? 'scale-105' : ''
+                        hoveredFeature === feature.id ? "scale-105" : ""
                       }`}
                     >
                       {/* Icon */}
-                      <div className={`p-3 bg-gradient-to-br ${feature.color}/10 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`p-3 bg-gradient-to-br ${feature.color}/10 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
                         {feature.icon}
                       </div>
-                      
+
                       {/* Content */}
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                      <p className="text-gray-600 mb-4">{feature.description}</p>
-                      
-                      
-                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        {feature.description}
+                      </p>
+
                       {/* Animated Border */}
                       <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden">
                         <motion.div
-                          animate={{ width: hoveredFeature === feature.id ? '100%' : '0%' }}
+                          animate={{
+                            width:
+                              hoveredFeature === feature.id ? "100%" : "0%",
+                          }}
                           transition={{ duration: 0.3 }}
                           className={`h-full bg-gradient-to-r ${feature.color}`}
                         />
@@ -266,7 +277,7 @@ export default function DigitalBankingPage() {
               {/* Right Column Features */}
               <div className="space-y-8 lg:mt-32">
                 {phoneFeatures
-                  .filter(feature => feature.position === 'right')
+                  .filter((feature) => feature.position === "right")
                   .map((feature, index) => (
                     <motion.div
                       key={feature.id}
@@ -277,31 +288,43 @@ export default function DigitalBankingPage() {
                       onMouseEnter={() => setHoveredFeature(feature.id)}
                       onMouseLeave={() => setHoveredFeature(null)}
                       className={`relative group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-gray-100 transition-all duration-500 lg:ml-auto lg:mr-6 max-w-[360px] ${
-                        hoveredFeature === feature.id ? 'scale-105' : ''
+                        hoveredFeature === feature.id ? "scale-105" : ""
                       }`}
                     >
                       {/* Icon */}
-                      <div className={`p-3 bg-gradient-to-br ${feature.color}/10 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`p-3 bg-gradient-to-br ${feature.color}/10 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
                         {feature.icon}
                       </div>
-                      
+
                       {/* Content */}
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                      <p className="text-gray-600 mb-4">{feature.description}</p>
-                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        {feature.description}
+                      </p>
+
                       {/* Learn More Link */}
                       <Link
                         to="#"
                         className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-blue-600 group/link"
                       >
                         <span>Learn more</span>
-                        <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                        <ChevronRight
+                          size={16}
+                          className="group-hover/link:translate-x-1 transition-transform"
+                        />
                       </Link>
-                      
+
                       {/* Animated Border */}
                       <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden">
                         <motion.div
-                          animate={{ width: hoveredFeature === feature.id ? '100%' : '0%' }}
+                          animate={{
+                            width:
+                              hoveredFeature === feature.id ? "100%" : "0%",
+                          }}
                           transition={{ duration: 0.3 }}
                           className={`h-full bg-gradient-to-r ${feature.color}`}
                         />
@@ -321,18 +344,20 @@ export default function DigitalBankingPage() {
           <img
             src="/images/mobile-hero.webp"
             alt="Digital banking background"
-            className="w-full h-full object-cover"
+            className="
+    w-full h-full
+    object-contain md:object-cover   // 👈 key fix
+    bg-[#1A1C47]
+  "
             onError={(e) => {
-              e.target.style.display = 'none';
-              const fallback = document.createElement('div');
-              fallback.className = 'absolute inset-0 bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900';
+              e.target.style.display = "none";
+              const fallback = document.createElement("div");
+              fallback.className =
+                "absolute inset-0 bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900";
               e.target.parentNode.appendChild(fallback);
             }}
           />
-          
         </div>
-
-       
       </section>
 
       {/* App Features & Download Section */}
@@ -347,35 +372,36 @@ export default function DigitalBankingPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-[#1A1C47] rounded-full" />
-            <h2 className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold">
-              NEW MOBILE APP
-            </h2>
-            <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-[#1A1C47] rounded-full" />
-          </div>
-              
-              {/* Title */}
-            
-             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Banking in{" "}
-            <span className="bg-gradient-to-r from-blue-800 to-[#1A1C47] bg-clip-text text-transparent">
-             Your Pocket
-            </span>
-          </h2>
+                <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-[#1A1C47] rounded-full" />
+                <h2 className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold">
+                  NEW MOBILE APP
+                </h2>
+                <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-[#1A1C47] rounded-full" />
+              </div>
 
-              
+              {/* Title */}
+
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Banking in{" "}
+                <span className="bg-gradient-to-r from-blue-800 to-[#1A1C47] bg-clip-text text-transparent">
+                  Your Pocket
+                </span>
+              </h2>
+
               <p className="text-lg text-gray-600 mb-8">
-                Join over 50,000 satisfied users who manage their finances effortlessly with our mobile app.
+                Join over 50,000 satisfied users who manage their finances
+                effortlessly with our mobile app.
               </p>
 
               {/* App Features */}
               <div className="grid sm:grid-cols-2 gap-4 mb-10">
                 {appFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+                  >
                     <div className="p-2 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg">
-                      <div className="text-blue-600">
-                        {feature.icon}
-                      </div>
+                      <div className="text-blue-600">{feature.icon}</div>
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 mb-1">
@@ -390,7 +416,7 @@ export default function DigitalBankingPage() {
               </div>
 
               {/* Download Buttons */}
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <a
                   href="https://apps.apple.com/app/gtccu-mobile-banking"
                   target="_blank"
@@ -424,7 +450,7 @@ export default function DigitalBankingPage() {
                   </div>
                   <Download className="ml-auto text-white opacity-70 group-hover:translate-y-1 transition-transform" size={20} />
                 </a>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Right: Overlapping Phone Images */}
@@ -440,38 +466,44 @@ export default function DigitalBankingPage() {
                 {phoneImages.map((phone, index) => (
                   <motion.div
                     key={phone.id}
-                    initial={{ opacity: 0, y: 50, rotate: index === 0 ? -5 : 5 }}
-                    whileInView={{ opacity: 1, y: 0, rotate: index === 0 ? -8 : 8 }}
+                    initial={{
+                      opacity: 0,
+                      y: 50,
+                      rotate: index === 0 ? -5 : 5,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                      rotate: index === 0 ? -8 : 8,
+                    }}
                     transition={{ duration: 0.8, delay: index * 0.2 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -20, rotate: index === 0 ? -12 : 12 }}
-                    className={`absolute ${index === 0 ? 'left-0' : 'right-0'} top-1/2 transform -translate-y-1/2 w-[65%] cursor-pointer`}
+                    className={`absolute ${index === 0 ? "left-0" : "right-0"} top-1/2 transform -translate-y-1/2 w-[65%] cursor-pointer`}
                     onClick={() => setActiveAppImage(index)}
                   >
-                      <div className="relative  overflow-hidden">
-                        {/* Try to load actual image */}
-                        <img
-                          src={phone.src}
-                          alt={phone.alt}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.parentNode.className += '';
-                          }}
-                        />
-                        {/* Fallback if image doesn't load */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 p-6">
-                          <div className="text-center text-white">
-                            <PhoneIcon size={48} className="mx-auto mb-4 opacity-50" />
-                            <h3 className="text-lg font-bold mb-2">{phone.title}</h3>
-                            <p className="text-sm text-blue-200">{phone.description}</p>
-                          </div>
+                    <div className="relative  overflow-hidden">
+                      {/* Try to load actual image */}
+                      <img
+                        src={phone.src}
+                        alt={phone.alt}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          e.target.parentNode.className += "";
+                        }}
+                      />
+                      {/* Fallback if image doesn't load */}
+                      <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <div className="text-center text-white">
+                          <PhoneIcon
+                            size={48}
+                            className="mx-auto mb-4 opacity-50"
+                          />
                         </div>
                       </div>
-                      {/* Home Button */}
-                      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gray-800 rounded-full" />
-                    
-                    
+                    </div>
+
                     {/* Active Indicator */}
                     {activeAppImage === index && (
                       <motion.div
@@ -484,20 +516,11 @@ export default function DigitalBankingPage() {
                     )}
                   </motion.div>
                 ))}
-                
-                {/* Center Decorative Element */}
-                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-2xl">
-                    <Smartphone className="text-white" size={32} />
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
-    
     </div>
   );
 }

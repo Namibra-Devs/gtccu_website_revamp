@@ -6,6 +6,7 @@ import ProductsSection from "../components/sections/ProductSection";
 import FrequentlyAskedSection from "../components/sections/FrequentlyAskedSection";
 import ServicesSection from "../components/sections/ServicesSection";
 import MobileAppSection from "../components/sections/MobileAppSection";
+import TestimonialSlider from "../components/sections/TestimonialSlider";
 
 const heroContent = [
   {
@@ -211,15 +212,6 @@ export default function LandingPage() {
 
          
 
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <span className="text-sm text-white/60 font-medium">GTCCU</span>
-            <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent" />
-          </motion.div>
         </div>
       </section>
 
@@ -229,6 +221,7 @@ export default function LandingPage() {
       <ProductsSection />
       <MobileAppSection />
       <FrequentlyAskedSection />
+      <TestimonialSlider />
       
     </>
   );

@@ -21,12 +21,13 @@ import ByeLawsPage from "../components/sections/ByeLawsPage";
 import GalleryPage from "../components/sections/GalleryPage";
 import SavingsPage from "../features/SavingsPage";
 import DigitalBankingPage from "../features/DigitalBankingPage";
-
+import ScrollToTop from "../components/layout/ScrollToTop";
 
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
+      <ScrollToTop /> {/* Add ScrollToTop component here */}
       <Layout>
         <Routes>
           <Route path="/" element={<LandingPage />} />

@@ -135,11 +135,7 @@ export default function Navbar() {
           path: "/join/open",
           icon: <User size={16} />,
         },
-        {
-          name: "Membership Benefits",
-          path: "/join/benefits",
-          icon: <Star size={16} />,
-        },
+       
       ],
     },
     {
@@ -166,6 +162,11 @@ export default function Navbar() {
           name: "Savings Accounts",
           path: "/services/savings",
           icon: <Wallet size={16} />,
+        },
+        {
+          name: "Mobile Banking",
+          path: "/services/digital",
+          icon: <Phone size={16} />,
         },
       ],
     },

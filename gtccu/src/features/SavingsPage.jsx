@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowRight, 
-  TrendingUp, 
-  Shield, 
-  Clock, 
-  Calculator, 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  TrendingUp,
+  Shield,
+  Clock,
+  Calculator,
   CheckCircle,
   Users,
   Target,
@@ -22,12 +22,12 @@ import {
   Smartphone,
   Banknote,
   Percent,
-  Award
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+  Award,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function SavingsPage() {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState("all");
   const [hoveredCard, setHoveredCard] = useState(null);
 
   // Savings plans data
@@ -36,104 +36,110 @@ export default function SavingsPage() {
       id: 1,
       title: "Regular Savings",
       subtitle: "Build your financial foundation",
-      description: "Start your savings journey with our flexible regular savings account. No minimum balance required, earn competitive interest.",
+      description:
+        "Start your savings journey with our flexible regular savings account. No minimum balance required, earn competitive interest.",
       features: [
         "No minimum balance",
         "2.5% annual interest",
         "Flexible deposits",
-        "Free withdrawals"
+        "Free withdrawals",
       ],
       icon: <Banknote className="text-blue-600" size={24} />,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-500 to-cyan-800",
       minAmount: "₵50",
       interestRate: "2.5% p.a.",
-      badge: "Most Popular"
+      badge: "Most Popular",
     },
     {
       id: 2,
       title: "Goal-Based Savings",
       subtitle: "Achieve your dreams faster",
-      description: "Set specific financial goals and watch your savings grow with higher interest rates for committed savers.",
+      description:
+        "Set specific financial goals and watch your savings grow with higher interest rates for committed savers.",
       features: [
         "Higher interest rates",
         "Goal tracking dashboard",
         "Auto-save options",
-        "Progress notifications"
+        "Progress notifications",
       ],
       icon: <Target className="text-purple-600" size={24} />,
-      color: "from-purple-500 to-pink-500",
+      color: "from-purple-500 to-pink-800",
       minAmount: "₵200",
       interestRate: "3.8% p.a.",
-      badge: "High Yield"
+      badge: "High Yield",
     },
     {
       id: 3,
       title: "Fixed Deposit",
       subtitle: "Maximize your returns",
-      description: "Lock in higher interest rates with our fixed deposit accounts. Choose from 3, 6, 12, or 24-month terms.",
+      description:
+        "Lock in higher interest rates with our fixed deposit accounts. Choose from 3, 6, 12, or 24-month terms.",
       features: [
         "Highest interest rates",
         "Guanteed returns",
         "Flexible terms",
-        "Premature closure option"
+        "Premature closure option",
       ],
       icon: <Lock className="text-emerald-600" size={24} />,
-      color: "from-emerald-500 to-teal-500",
+      color: "from-emerald-500 to-teal-800",
       minAmount: "₵1,000",
       interestRate: "5.2% p.a.",
-      badge: "Best Returns"
+      badge: "Best Returns",
     },
     {
       id: 4,
       title: "Children's Savings",
       subtitle: "Secure your child's future",
-      description: "Special savings account designed for children with bonus interest and educational benefits.",
+      description:
+        "Special savings account designed for children with bonus interest and educational benefits.",
       features: [
         "Bonus interest for minors",
         "Educational rewards",
         "Parental controls",
-        "Financial literacy tools"
+        "Financial literacy tools",
       ],
       icon: <Users className="text-amber-600" size={24} />,
-      color: "from-amber-500 to-orange-500",
+      color: "from-amber-500 to-orange-800",
       minAmount: "₵20",
       interestRate: "3.0% p.a.",
-      badge: "Family Friendly"
+      badge: "Family Friendly",
     },
     {
       id: 5,
       title: "Senior Citizens",
       subtitle: "Rewarding golden years",
-      description: "Exclusive savings plan for senior citizens with enhanced benefits and special privileges.",
+      description:
+        "Exclusive savings plan for senior citizens with enhanced benefits and special privileges.",
       features: [
         "Enhanced interest rates",
         "Priority services",
         "Free insurance coverage",
-        "Healthcare benefits"
+        "Healthcare benefits",
       ],
       icon: <Award className="text-rose-600" size={24} />,
-      color: "from-rose-500 to-red-500",
+      color: "from-rose-500 to-red-800",
       minAmount: "₵100",
       interestRate: "4.0% p.a.",
-      badge: "Senior Exclusive"
+      badge: "Senior Exclusive",
     },
     {
       id: 6,
       title: "Digital Savings",
       subtitle: "Smart banking for modern life",
-      description: "Fully digital savings account with automated features and AI-powered financial insights.",
+      description:
+        "Fully digital savings account with automated features and AI-powered financial insights.",
       features: [
         "AI savings assistant",
         "Auto-roundup savings",
         "Smart notifications",
-        "Digital statements only"
+        "Digital statements only",
       ],
       icon: <Smartphone className="text-indigo-600" size={24} />,
-      color: "from-indigo-500 to-violet-500",
+      color: "from-indigo-500 to-violet-800",
       minAmount: "₵50",
       interestRate: "2.8% p.a.",
-      badge: "Tech Forward"
-    }
+      badge: "Tech Forward",
+    },
   ];
 
   // Features grid
@@ -141,23 +147,25 @@ export default function SavingsPage() {
     {
       icon: <Shield size={28} />,
       title: "Bank-Grade Security",
-      description: "Your savings are protected with 256-bit encryption and insured up to ₵50,000"
+      description:
+        "Your savings are protected with 256-bit encryption and insured up to ₵50,000",
     },
     {
       icon: <TrendingUp size={28} />,
       title: "Competitive Rates",
-      description: "Enjoy some of the highest interest rates in the industry"
+      description: "Enjoy some of the highest interest rates in the industry",
     },
     {
       icon: <Clock size={28} />,
       title: "24/7 Access",
-      description: "Manage your savings anytime, anywhere with our mobile app"
+      description: "Manage your savings anytime, anywhere with our mobile app",
     },
     {
       icon: <Users size={28} />,
       title: "Community Focused",
-      description: "We reinvest profits to support local education and development"
-    }
+      description:
+        "We reinvest profits to support local education and development",
+    },
   ];
 
   // Stats data
@@ -165,31 +173,40 @@ export default function SavingsPage() {
     { value: "₵12.5M+", label: "Total Savings", icon: <PieChart size={20} /> },
     { value: "8,500+", label: "Happy Savers", icon: <Users size={20} /> },
     { value: "4.9★", label: "Customer Rating", icon: <Star size={20} /> },
-    { value: "99.8%", label: "Satisfaction Rate", icon: <CheckCircle size={20} /> }
+    {
+      value: "99.8%",
+      label: "Satisfaction Rate",
+      icon: <CheckCircle size={20} />,
+    },
   ];
 
   // FAQ data
   const faqs = [
     {
       question: "What is the minimum amount to open a savings account?",
-      answer: "You can start with as little as ₵50 for most of our savings accounts. Some specialized accounts may have higher minimums."
+      answer:
+        "You can start with as little as ₵50 for most of our savings accounts. Some specialized accounts may have higher minimums.",
     },
     {
       question: "How often is interest paid on savings?",
-      answer: "Interest is calculated daily and paid monthly directly into your savings account."
+      answer:
+        "Interest is calculated daily and paid monthly directly into your savings account.",
     },
     {
       question: "Are my savings insured?",
-      answer: "Yes, all deposits are insured up to ₵50,000 per depositor through our deposit protection scheme."
+      answer:
+        "Yes, all deposits are insured up to ₵50,000 per depositor through our deposit protection scheme.",
     },
     {
       question: "Can I access my savings online?",
-      answer: "Absolutely! You can manage your savings 24/7 through our mobile app and online banking portal."
+      answer:
+        "Absolutely! You can manage your savings 24/7 through our mobile app and online banking portal.",
     },
     {
       question: "What documents do I need to open an account?",
-      answer: "You'll need a valid government-issued ID, proof of address, and a recent passport-sized photograph."
-    }
+      answer:
+        "You'll need a valid government-issued ID, proof of address, and a recent passport-sized photograph.",
+    },
   ];
 
   // Calculator data
@@ -200,8 +217,8 @@ export default function SavingsPage() {
       fixed: 5.2,
       children: 3.0,
       senior: 4.0,
-      digital: 2.8
-    }
+      digital: 2.8,
+    },
   };
 
   return (
@@ -216,13 +233,13 @@ export default function SavingsPage() {
             className="w-full h-full object-cover"
             onError={(e) => {
               // Fallback gradient if image fails to load
-              e.target.style.display = 'none';
-              const fallback = document.createElement('div');
-              fallback.className = 'absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-cyan-900';
+              e.target.style.display = "none";
+              const fallback = document.createElement("div");
+              fallback.className =
+                "absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-cyan-900";
               e.target.parentNode.appendChild(fallback);
             }}
           />
-         
         </div>
 
         {/* Animated Elements */}
@@ -239,8 +256,6 @@ export default function SavingsPage() {
             className="absolute bottom-1/4 right-10 w-80 h-80 border border-white rounded-full"
           />
         </div>
-
-       
       </section>
 
       {/* Features Section */}
@@ -254,15 +269,23 @@ export default function SavingsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-blue-50 text-blue-700 rounded-full">
-              <Shield size={16} />
-              <span className="text-sm font-medium">Why Choose GTCCU Savings</span>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-[#1A1C47] rounded-full" />
+              <h2 className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold">
+                Why Choose GTCCU Savings
+              </h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-[#1A1C47] rounded-full" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Security Meets Growth
+
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+              Security{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-[#1A1C47] bg-clip-text text-transparent">
+                Meets Growth
+              </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We combine cutting-edge security with competitive returns to give you peace of mind and financial growth.
+              We combine cutting-edge security with competitive returns to give
+              you peace of mind and financial growth.
             </p>
           </motion.div>
 
@@ -281,7 +304,9 @@ export default function SavingsPage() {
                 <div className="p-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
                   <div className="text-blue-600">{feature.icon}</div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -304,19 +329,26 @@ export default function SavingsPage() {
               Choose Your Savings Path
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              Find the perfect savings plan that matches your financial goals and lifestyle.
+              Find the perfect savings plan that matches your financial goals
+              and lifestyle.
             </p>
 
             {/* Filter Tabs */}
             <div className="flex flex-wrap justify-center gap-2 mb-12">
-              {['All Plans', 'High Yield', 'Flexible', 'Long Term', 'Digital'].map((tab) => (
+              {[
+                "All Plans",
+                "High Yield",
+                "Flexible",
+                "Long Term",
+                "Digital",
+              ].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab.toLowerCase())}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     activeTab === tab.toLowerCase()
-                      ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm'
+                      ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg"
+                      : "bg-white text-gray-700 hover:bg-gray-50 shadow-sm"
                   }`}
                 >
                   {tab}
@@ -343,7 +375,9 @@ export default function SavingsPage() {
                   {/* Badge */}
                   {plan.badge && (
                     <div className="absolute top-4 right-4 z-10">
-                      <span className={`px-3 py-1 text-xs font-bold text-white rounded-full bg-gradient-to-r ${plan.color}`}>
+                      <span
+                        className={`px-3 py-1 text-xs font-bold text-white rounded-full bg-gradient-to-r ${plan.color}`}
+                      >
                         {plan.badge}
                       </span>
                     </div>
@@ -351,25 +385,34 @@ export default function SavingsPage() {
 
                   {/* Card Header */}
                   <div className="relative h-48 overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-90`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-90`}
+                    />
                     <div className="relative h-full flex flex-col justify-center items-center p-6 text-white">
                       <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl mb-4">
                         {plan.icon}
                       </div>
-                      <h3 className="text-2xl font-bold text-center">{plan.title}</h3>
-                      <p className="text-blue-100 text-center mt-2">{plan.subtitle}</p>
+                      <h3 className="text-2xl font-bold text-center">
+                        {plan.title}
+                      </h3>
+                      <p className="text-blue-100 text-center mt-2">
+                        {plan.subtitle}
+                      </p>
                     </div>
                   </div>
 
                   {/* Card Content */}
                   <div className="p-6">
                     <p className="text-gray-600 mb-6">{plan.description}</p>
-                    
+
                     {/* Features List */}
                     <div className="space-y-3 mb-8">
                       {plan.features.map((feature, index) => (
                         <div key={index} className="flex items-center gap-3">
-                          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
+                          <CheckCircle
+                            size={16}
+                            className="text-green-500 flex-shrink-0"
+                          />
                           <span className="text-gray-700">{feature}</span>
                         </div>
                       ))}
@@ -378,30 +421,30 @@ export default function SavingsPage() {
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="bg-gray-50 rounded-xl p-3 text-center">
-                        <div className="text-sm text-gray-500 mb-1">Min. Amount</div>
-                        <div className="text-lg font-bold text-gray-900">{plan.minAmount}</div>
+                        <div className="text-sm text-gray-500 mb-1">
+                          Min. Amount
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">
+                          {plan.minAmount}
+                        </div>
                       </div>
                       <div className="bg-gray-50 rounded-xl p-3 text-center">
-                        <div className="text-sm text-gray-500 mb-1">Interest Rate</div>
-                        <div className="text-lg font-bold text-gray-900">{plan.interestRate}</div>
+                        <div className="text-sm text-gray-500 mb-1">
+                          Interest Rate
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">
+                          {plan.interestRate}
+                        </div>
                       </div>
                     </div>
-
-                    {/* CTA Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full py-3 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight size={18} />
-                    </motion.button>
                   </div>
 
                   {/* Hover Effect Line */}
                   <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden">
                     <motion.div
-                      animate={{ width: hoveredCard === plan.id ? '100%' : '0%' }}
+                      animate={{
+                        width: hoveredCard === plan.id ? "100%" : "0%",
+                      }}
                       transition={{ duration: 0.3 }}
                       className={`h-full bg-gradient-to-r ${plan.color}`}
                     />
@@ -443,18 +486,21 @@ export default function SavingsPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {faq.question}
+                    </h3>
                     <p className="text-gray-600">{faq.answer}</p>
                   </div>
-                  <ChevronDown className="text-gray-400 flex-shrink-0" size={20} />
+                  <ChevronDown
+                    className="text-gray-400 flex-shrink-0"
+                    size={20}
+                  />
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-    
     </div>
   );
 }

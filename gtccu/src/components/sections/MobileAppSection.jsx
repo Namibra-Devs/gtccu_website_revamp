@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-import { 
-  Smartphone, 
-  Shield, 
-  Zap, 
-  Lock, 
-  Download, 
+import {
+  Smartphone,
+  Shield,
+  Zap,
+  Lock,
+  Download,
   CheckCircle,
   ArrowRight,
   Star,
   Sparkles,
-  Smartphone as PhoneIcon
+  Smartphone as PhoneIcon,
 } from "lucide-react";
 
 export default function MobileAppSection() {
@@ -17,29 +17,29 @@ export default function MobileAppSection() {
     {
       icon: <Shield size={20} />,
       title: "Bank-Grade Security",
-      description: "256-bit encryption & biometric authentication"
+      description: "256-bit encryption & biometric authentication",
     },
     {
       icon: <Zap size={20} />,
       title: "Lightning Fast",
-      description: "Instant transactions & real-time updates"
+      description: "Instant transactions & real-time updates",
     },
     {
       icon: <Lock size={20} />,
       title: "Privacy First",
-      description: "Your data stays protected & private"
+      description: "Your data stays protected & private",
     },
     {
       icon: <CheckCircle size={20} />,
       title: "Easy to Use",
-      description: "Intuitive design for all ages"
-    }
+      description: "Intuitive design for all ages",
+    },
   ];
 
   const appStats = [
     { value: "4.8", label: "App Store Rating", stars: 5 },
-    { value: "50K+", label: "Active Users" },
-    { value: "99.9%", label: "Uptime" }
+    { value: "5K+", label: "Active Users" },
+    { value: "99.9%", label: "Uptime" },
   ];
 
   // Phone mockup images from public/images
@@ -53,7 +53,7 @@ export default function MobileAppSection() {
       position: "left-0",
       transform: "translateX(-60%)",
       zIndex: "z-30",
-      delay: 0.5
+      delay: 0.5,
     },
     {
       id: 2,
@@ -64,7 +64,7 @@ export default function MobileAppSection() {
       position: "",
       transform: "translateX(-30%)",
       zIndex: "z-20",
-      delay: 0.4
+      delay: 0.4,
     },
     {
       id: 3,
@@ -75,82 +75,75 @@ export default function MobileAppSection() {
       position: "right-0",
       transform: "",
       zIndex: "z-10",
-      delay: 0.3
-    }
+      delay: 0.3,
+    },
   ];
 
   // Fallback content if images don't exist
   const fallbackContent = [
     {
       title: "Dashboard",
-      color: "from-purple-900 via-purple-800 to-pink-900"
+      color: "from-purple-900 via-purple-800 to-pink-900",
     },
     {
-      title: "Transactions", 
-      color: "from-emerald-900 via-emerald-800 to-teal-900"
+      title: "Transactions",
+      color: "from-emerald-900 via-emerald-800 to-teal-900",
     },
     {
       title: "Banking",
-      color: "from-blue-900 via-blue-800 to-cyan-900"
-    }
+      color: "from-blue-900 via-blue-800 to-cyan-900",
+    },
   ];
 
   return (
     <section className="relative w-full py-20 md:py-32 overflow-hidden">
-
-         {/* Background Image Section */}
+      {/* Background Image Section */}
       <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-  src="/images/mobile-hero.webp"
-  alt="Digital banking background"
-  className="
+            src="/images/mobile-hero.webp"
+            alt="Digital banking background"
+            className="
     w-full h-full
     object-contain md:object-cover   // 👈 key fix
     bg-[#1A1C47]
   "
-  onError={(e) => {
-    e.target.style.display = 'none';
-    const fallback = document.createElement('div');
-    fallback.className =
-      'absolute inset-0 bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900';
-    e.target.parentNode.appendChild(fallback);
-  }}
-/>
-
-          
+            onError={(e) => {
+              e.target.style.display = "none";
+              const fallback = document.createElement("div");
+              fallback.className =
+                "absolute inset-0 bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900";
+              e.target.parentNode.appendChild(fallback);
+            }}
+          />
         </div>
-
-       
       </section>
 
-      
-      
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Circles */}
         <motion.div
           animate={{
             y: [0, -20, 0],
-            x: [0, 10, 0]
+            x: [0, 10, 0],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-1/4 left-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40"
         />
         <motion.div
           animate={{
             y: [0, 20, 0],
-            x: [0, -10, 0]
+            x: [0, -10, 0],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute bottom-1/4 right-10 w-80 h-80 bg-cyan-100 rounded-full blur-3xl opacity-30"
         />
@@ -167,27 +160,27 @@ export default function MobileAppSection() {
             className="relative"
           >
             <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-[#1A1C47] rounded-full" />
-            <h2 className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold">
-              NEW MOBILE APP
-            </h2>
-            <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-[#1A1C47] rounded-full" />
-          </div>
-           
+              <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-[#1A1C47] rounded-full" />
+              <h2 className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold">
+                NEW MOBILE APP
+              </h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-[#1A1C47] rounded-full" />
+            </div>
 
             {/* Title */}
-            
-             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Banking in{" "}
-            <span className="bg-gradient-to-r from-blue-800 to-[#1A1C47] bg-clip-text text-transparent">
-             Your Pocket
-            </span>
-          </h2>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Banking in{" "}
+              <span className="bg-gradient-to-r from-blue-800 to-[#1A1C47] bg-clip-text text-transparent">
+                Your Pocket
+              </span>
+            </h2>
 
             {/* Description */}
             <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg">
-              Experience the future of banking with our award-winning mobile app. 
-              Manage your finances anytime, anywhere with ultimate security and convenience.
+              Experience the future of banking with our award-winning mobile
+              app. Manage your finances anytime, anywhere with ultimate security
+              and convenience.
             </p>
 
             {/* Features Grid */}
@@ -202,9 +195,7 @@ export default function MobileAppSection() {
                   className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
                 >
                   <div className="p-2 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg">
-                    <div className="text-blue-600">
-                      {feature.icon}
-                    </div>
+                    <div className="text-blue-600">{feature.icon}</div>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">
@@ -219,7 +210,7 @@ export default function MobileAppSection() {
             </div>
 
             {/* Download Buttons */}
-            <div className="space-y-4 mb-10">
+            {/* <div className="space-y-4 mb-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -227,7 +218,7 @@ export default function MobileAppSection() {
                 viewport={{ once: true }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                {/* App Store Button */}
+               
                 <a
                   href="https://apps.apple.com/app/gtccu-mobile-banking"
                   target="_blank"
@@ -246,7 +237,7 @@ export default function MobileAppSection() {
                   <Download className="ml-auto text-white opacity-70 group-hover:translate-y-1 transition-transform" size={20} />
                 </a>
 
-                {/* Google Play Button */}
+                
                 <a
                   href="https://play.google.com/store/apps/details?id=com.gtccu.mobile"
                   target="_blank"
@@ -265,7 +256,7 @@ export default function MobileAppSection() {
                   <Download className="ml-auto text-white opacity-70 group-hover:translate-y-1 transition-transform" size={20} />
                 </a>
               </motion.div>
-            </div>
+            </div> */}
 
             {/* App Stats */}
             <motion.div
@@ -282,7 +273,11 @@ export default function MobileAppSection() {
                     {stat.stars && (
                       <div className="flex ml-1">
                         {[...Array(stat.stars)].map((_, i) => (
-                          <Star key={i} size={12} className="fill-yellow-400 text-yellow-400" />
+                          <Star
+                            key={i}
+                            size={12}
+                            className="fill-yellow-400 text-yellow-400"
+                          />
                         ))}
                       </div>
                     )}
@@ -303,19 +298,22 @@ export default function MobileAppSection() {
           >
             {/* Container for overlapping phones */}
             <div className="relative w-full max-w-2xl mx-auto h-full flex items-end justify-center">
-              
               {phoneImages.map((phone, index) => (
                 <motion.div
                   key={phone.id}
-                  initial={{ opacity: 0, y: 100 - (index * 20), rotateY: 20 - (index * 15) }}
+                  initial={{
+                    opacity: 0,
+                    y: 100 - index * 20,
+                    rotateY: 20 - index * 15,
+                  }}
                   whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
                   transition={{ duration: 0.8, delay: phone.delay }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10 - (index * 5) }}
+                  whileHover={{ y: -10 - index * 5 }}
                   className={`absolute ${phone.position} ${phone.zIndex}`}
-                  style={{ 
+                  style={{
                     width: phone.width,
-                    transform: phone.transform
+                    transform: phone.transform,
                   }}
                 >
                   {/* Phone Container with Shadow and Border */}
@@ -323,7 +321,9 @@ export default function MobileAppSection() {
                     {/* Phone Frame */}
                     <div className="relative  overflow-hidden">
                       {/* Phone Screen */}
-                      <div className={`relative overflow-hidden rounded-2xl ${phone.height} `}>
+                      <div
+                        className={`relative overflow-hidden rounded-2xl ${phone.height} `}
+                      >
                         {/* Try to load actual image, fallback to gradient */}
                         <img
                           src={phone.src}
@@ -331,14 +331,17 @@ export default function MobileAppSection() {
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             // If image fails to load, show fallback
-                            e.target.style.display = 'none';
-                            const fallback = e.target.parentNode.querySelector('.image-fallback');
-                            if (fallback) fallback.style.display = 'flex';
+                            e.target.style.display = "none";
+                            const fallback =
+                              e.target.parentNode.querySelector(
+                                ".image-fallback",
+                              );
+                            if (fallback) fallback.style.display = "flex";
                           }}
                         />
-                        
+
                         {/* Fallback Content if image doesn't exist */}
-                        <div 
+                        <div
                           className={`image-fallback hidden absolute inset-0 bg-gradient-to-br ${fallbackContent[index].color} items-center justify-center p-6`}
                         >
                           <div className="text-center">
@@ -351,41 +354,67 @@ export default function MobileAppSection() {
                             <p className="text-blue-100">
                               {fallbackContent[index].title} Screen
                             </p>
-                            
+
                             {/* Quick info for fallback */}
                             {index === 0 && (
                               <div className="mt-4 grid grid-cols-2 gap-3">
                                 <div className="p-2 bg-white/10 rounded-xl">
-                                  <div className="text-white text-xs">Balance</div>
-                                  <div className="text-white font-bold">₵12,456</div>
+                                  <div className="text-white text-xs">
+                                    Balance
+                                  </div>
+                                  <div className="text-white font-bold">
+                                    ₵12,456
+                                  </div>
                                 </div>
                                 <div className="p-2 bg-white/10 rounded-xl">
-                                  <div className="text-white text-xs">Income</div>
-                                  <div className="text-emerald-300 font-bold">+₵4,320</div>
+                                  <div className="text-white text-xs">
+                                    Income
+                                  </div>
+                                  <div className="text-emerald-300 font-bold">
+                                    +₵4,320
+                                  </div>
                                 </div>
                               </div>
                             )}
-                            
+
                             {index === 1 && (
                               <div className="mt-4 space-y-2">
-                                {["Payment to John", "Bill Payment", "Fund Transfer"].map((item, i) => (
-                                  <div key={i} className="flex items-center justify-between p-2 bg-white/10 rounded-lg">
-                                    <span className="text-white text-sm">{item}</span>
-                                    <span className="text-rose-300 text-sm">-₵{50 + i * 100}</span>
+                                {[
+                                  "Payment to John",
+                                  "Bill Payment",
+                                  "Fund Transfer",
+                                ].map((item, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex items-center justify-between p-2 bg-white/10 rounded-lg"
+                                  >
+                                    <span className="text-white text-sm">
+                                      {item}
+                                    </span>
+                                    <span className="text-rose-300 text-sm">
+                                      -₵{50 + i * 100}
+                                    </span>
                                   </div>
                                 ))}
                               </div>
                             )}
-                            
+
                             {index === 2 && (
                               <div className="mt-4">
-                                <div className="text-white text-lg font-bold mb-2">Quick Actions</div>
+                                <div className="text-white text-lg font-bold mb-2">
+                                  Quick Actions
+                                </div>
                                 <div className="grid grid-cols-2 gap-2">
-                                  {["Pay", "Transfer", "Deposit", "More"].map((action) => (
-                                    <button key={action} className="p-2 bg-white/10 rounded-lg text-white text-sm hover:bg-white/20">
-                                      {action}
-                                    </button>
-                                  ))}
+                                  {["Pay", "Transfer", "Deposit", "More"].map(
+                                    (action) => (
+                                      <button
+                                        key={action}
+                                        className="p-2 bg-white/10 rounded-lg text-white text-sm hover:bg-white/20"
+                                      >
+                                        {action}
+                                      </button>
+                                    ),
+                                  )}
                                 </div>
                               </div>
                             )}
@@ -400,16 +429,8 @@ export default function MobileAppSection() {
                 </motion.div>
               ))}
             </div>
-
-           
-
-           
           </motion.div>
         </div>
-
-       
-
-       
       </div>
     </section>
   );
