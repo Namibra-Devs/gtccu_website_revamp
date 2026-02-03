@@ -19,6 +19,8 @@ import OurTeamPage from "../components/sections/OurTeamPage";
 import OurBoardPage from "../components/sections/OurBoardPage";
 import ByeLawsPage from "../components/sections/ByeLawsPage";
 import GalleryPage from "../components/sections/GalleryPage";
+import SavingsPage from "../features/SavingsPage";
+import DigitalBankingPage from "../features/DigitalBankingPage";
 
 
 
@@ -45,6 +47,8 @@ export default function AppRoutes() {
           <Route path="/about/team" element={<OurTeamPage />} />
           <Route path="/about/board" element={<OurBoardPage />} />
           <Route path="/about/byelaws" element={<ByeLawsPage />} />
+          <Route path="/services/savings" element={<SavingsPage />} />
+          <Route path="/services/digital" element={<DigitalBankingPage />} />
           <Route path="/about/gallery" element={<GalleryPage />} />
         </Routes>
       </Layout>

@@ -204,7 +204,7 @@ export default function FAQStatsSection() {
           </div>
         </motion.div>
       </div>
-      <div className="w-full bg-blue-900 py-16 mt-4">
+      <div className="w-full bg-[#1A1C47] py-16 mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -341,7 +341,7 @@ export default function FAQStatsSection() {
       >
         <div className="grid md:grid-cols-2 ">
           {/* Company Details & Socials */}
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-10 text-white order-2 md:order-1">
+          <div className="bg-gradient-to-br from-blue-900 to-[#1A1C47] p-10 text-white order-2 md:order-1">
             <h2 className="text-3xl font-bold mb-8 flex items-center">
               <MessageCircle className="mr-3" />
               Get in Touch

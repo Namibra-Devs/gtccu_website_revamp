@@ -4,6 +4,8 @@ import { Play, Pause, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide
 import AboutSection from "@sections/AboutSection";
 import ProductsSection from "../components/sections/ProductSection";
 import FrequentlyAskedSection from "../components/sections/FrequentlyAskedSection";
+import ServicesSection from "../components/sections/ServicesSection";
+import MobileAppSection from "../components/sections/MobileAppSection";
 
 const heroContent = [
   {
@@ -223,8 +225,11 @@ export default function LandingPage() {
 
       {/* About Section */}
       <AboutSection />
+      <ServicesSection/>
       <ProductsSection />
+      <MobileAppSection />
       <FrequentlyAskedSection />
+      
     </>
   );
 }

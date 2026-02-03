@@ -249,10 +249,15 @@ export default function Navbar() {
         transition={{ delay: index * 0.05 }}
       >
         <NavLink
-          to={item.path}
-          className="flex items-center gap-3 px-4 py-3 hover:bg-white/20 hover:backdrop-blur-sm text-gray-700 hover:text-blue-600 transition-all duration-200 group"
-          onClick={() => setDropdownOpen(null)}
-        >
+  to={item.path}
+  className="flex items-center gap-3 px-4 py-3 
+  text-gray-700 
+  transition-all duration-300 ease-out 
+  group hover:bg-white/15 hover:text-blue-700 hover:backdrop-blur-sm
+  hover:translate-x-2"
+  onClick={() => setDropdownOpen(null)}
+>
+
           <div className="text-blue-500">{item.icon}</div>
           <span className="flex-1">{item.name}</span>
           <ChevronDown
@@ -269,8 +274,8 @@ export default function Navbar() {
       <nav
         className={`fixed w-full top-0 z-50 transition-all duration-500 overflow-x-none ${
           scrolled
-            ? "bg-white/10 backdrop-blur-xl shadow-lg shadow-blue-500/5 border-b border-white/20"
-            : "bg-gradient-to-b from-black/20 via-transparent to-transparent"
+            ? "bg-gradient-to-r from-blue-900/30 via-blue-800/20 to-blue-900/30 backdrop-blur-xl shadow-lg shadow-blue-900/20 border-b border-white/15"
+  : "bg-gradient-to-b from-blue-950/30 via-transparent to-transparent"
         }`}
       >
         {/* Background Blur Layer */}
@@ -362,9 +367,9 @@ export default function Navbar() {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: -20, scale: 0.95 }}
                               transition={{ duration: 0.2, ease: "easeOut" }}
-                              className="absolute left-1/2 transform -translate-x-1/2 mt-3 min-w-[280px] bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-xl shadow-2xl shadow-blue-500/10 rounded-2xl py-3 z-50 border border-white/20 overflow-hidden"
+                              className="absolute left-1/2 transform -translate-x-1/2 mt-3 min-w-[280px] bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-xl shadow-2xl shadow-blue-500/10 rounded-md py-3 z-50 border border-white/20 overflow-hidden"
                             >
-                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400" />
+                              
                               <div className="flex items-center gap-2 text-sm font-semibold text-gray-500 px-4 py-2 mb-2">
                                 {item.icon}
                                 <span>{item.name}</span>

@@ -127,7 +127,7 @@ export default function ProductsSection() {
     <section className="relative w-full py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14 text-blue-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14 text-[#1A1C47]">
           Our Products
         </h2>
 
@@ -139,7 +139,7 @@ export default function ProductsSection() {
             return (
               <div
                 key={id}
-                className="relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+                className="relative group rounded-md overflow-hidden cursor-pointer"
                 onClick={() => setActiveCard(isActive ? null : id)} // toggle on tap (mobile)
               >
                 <img
@@ -148,7 +148,7 @@ export default function ProductsSection() {
                   className="w-full h-72 object-cover transform group-hover:scale-110 transition-all duration-500"
                 />
                 {/* Blue bottom ribbon */}
-                <div className="absolute bottom-0 left-0 w-full bg-blue-600 text-white flex items-center px-4 py-3 space-x-2">
+                <div className="absolute bottom-0 left-0 w-full bg-blue-800 text-white flex items-center px-4 py-3 space-x-2">
                   <Icon className="w-6 h-6" />
                   <span className="font-semibold">{title}</span>
                 </div>
@@ -156,7 +156,7 @@ export default function ProductsSection() {
                 {/* Overlay (desktop hover OR mobile active) */}
                 <div
                   className={`
-                    absolute inset-0 bg-blue-900/90 text-white flex items-center justify-between p-6
+                    absolute inset-0 bg-[#1A1C47] text-white flex items-center justify-between p-6
                     transition-all duration-500
                     ${
                       isActive
@@ -191,7 +191,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-10 shadow-xl"
+            className="bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-2xl p-10"
           >
             <h3 className="text-2xl font-bold mb-4">Why Choose GTCCU?</h3>
             <p className="text-lg mb-6 text-blue-100 leading-relaxed">
@@ -210,7 +210,7 @@ export default function ProductsSection() {
           <div ref={timelineRef} className="relative">
             {/* Animated Vertical Line (stops at last icon center) */}
             <motion.div
-              className="absolute left-6 top-0 w-1 bg-blue-500 origin-top"
+              className="absolute left-6 top-0 w-1 bg-[#1A1C47] origin-top"
               style={{ height: lineHeightPx }}
             />
 
