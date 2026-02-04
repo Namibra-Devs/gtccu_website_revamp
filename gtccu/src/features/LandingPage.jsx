@@ -120,7 +120,7 @@ export default function LandingPage() {
             }}
           >
             <source 
-              src="/videos/hero1.mp4" 
+              src="/videos/hero-bg.mp4" 
               type="video/mp4" 
             />
             <source 

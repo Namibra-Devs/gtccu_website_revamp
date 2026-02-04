@@ -273,11 +273,11 @@ export default function TestimonialSlider() {
                           : "z-10 right-0 lg:right-8"
                     }`}
                   >
-                    <div
-                      className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 ${
+                     <div
+                      className={`rounded-xl shadow-md overflow-hidden transition-all duration-500 ${
                         isCenter
-                          ? "shadow-2xl ring-2 ring-blue-100"
-                          : "shadow-md opacity-90 hover:opacity-100 cursor-pointer"
+                          ? "shadow-2xl bg-[#1A1C47] text-white ring-2 ring-white/20"
+                          : "shadow-md bg-white opacity-90 hover:opacity-100 cursor-pointer"
                       }`}
                       onClick={() =>
                         !isCenter &&
@@ -292,7 +292,7 @@ export default function TestimonialSlider() {
                         {/* Quote Icon */}
                         <Quote
                           className={`w-8 h-8 mb-4 ${
-                            isCenter ? "text-blue-600" : "text-gray-400"
+                            isCenter ? "text-white" : "text-white"
                           }`}
                         />
 
@@ -314,7 +314,7 @@ export default function TestimonialSlider() {
                         <p
                           className={`mb-6 leading-relaxed ${
                             isCenter
-                              ? "text-gray-800 text-lg lg:text-xl italic"
+                              ? "text-white text-lg lg:text-xl italic"
                               : "text-gray-600 text-base"
                           }`}
                         >
@@ -332,7 +332,7 @@ export default function TestimonialSlider() {
                             <h4
                               className={`font-bold ${
                                 isCenter
-                                  ? "text-gray-900 text-lg"
+                                  ? "text-white-100 text-lg"
                                   : "text-gray-800"
                               }`}
                             >
@@ -340,7 +340,7 @@ export default function TestimonialSlider() {
                             </h4>
                             <p
                               className={`${
-                                isCenter ? "text-gray-600" : "text-gray-500"
+                                isCenter ? "text-white" : "text-gray-500"
                               }`}
                             >
                               {review.role}
