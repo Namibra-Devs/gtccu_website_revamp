@@ -373,7 +373,7 @@ export default function TestimonialSlider() {
           </div>
 
           {/* Testimonial Cards - Mobile (Single card centered) */}
-          <div className="md:hidden">
+          <div className="md:hidden pb-6">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -381,9 +381,9 @@ export default function TestimonialSlider() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction === 1 ? -100 : 100 }}
                 transition={{ duration: 0.4 }}
-                className="bg-white rounded-2xl shadow-xl p-6 mx-auto max-w-sm"
+                className="bg-[#1A1C47] rounded-xl shadow-md p-6 mx-auto max-w-sm"
               >
-                <Quote className="w-8 h-8 text-blue-600 mb-4" />
+                <Quote className="w-8 h-8 text-blue-500 mb-4" />
 
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -398,7 +398,7 @@ export default function TestimonialSlider() {
                   ))}
                 </div>
 
-                <p className="text-gray-800 mb-6 leading-relaxed italic">
+                <p className="text-white mb-6 leading-relaxed italic">
                   "{reviews[currentIndex].content}"
                 </p>
 
@@ -409,10 +409,10 @@ export default function TestimonialSlider() {
                     {reviews[currentIndex].name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">
+                    <h4 className="font-bold text-white">
                       {reviews[currentIndex].name}
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-white">
                       {reviews[currentIndex].role}
                     </p>
                   </div>

@@ -46,7 +46,7 @@ export default function MobileAppSection() {
   const phoneImages = [
     {
       id: 1,
-      src: "/images/phone3.png", // Left phone (shortest)
+      src: "/images/phone-1.png", // Left phone (shortest)
       alt: "GTCCU Mobile App Dashboard",
       height: "h-[400px] md:h-[480px]",
       width: "w-[36%]",
@@ -68,7 +68,7 @@ export default function MobileAppSection() {
     },
     {
       id: 3,
-      src: "/images/phone2.png", // Right phone (tallest)
+      src: "/images/phone-2.jpeg", // Right phone (tallest)
       alt: "GTCCU Mobile App Banking",
       height: "h-[550px] md:h-[600px]",
       width: "w-[40%]",
@@ -102,7 +102,7 @@ export default function MobileAppSection() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/mobile-hero.webp"
+            src="/images/mobile-hero1.jpeg"
             alt="Digital banking background"
             className="
     w-full h-full
@@ -423,8 +423,7 @@ export default function MobileAppSection() {
                       </div>
                     </div>
 
-                    {/* Home Button Indicator */}
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gray-800 rounded-full" />
+                   
                   </div>
                 </motion.div>
               ))}

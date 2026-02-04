@@ -80,7 +80,7 @@ export default function AboutSection() {
     },
     {
       id: 3,
-      image: "/images/e-zwitch.png",
+      image: "/images/cardz.png",
       icon: <Smartphone size={24} />,
       title: "Digital Banking",
       description: "Access your accounts 24/7 with our secure mobile and online banking platforms.",

@@ -41,7 +41,7 @@ export default function DigitalBankingPage() {
       description:
         "Send money to any bank in Ghana instantly. No delays, no hidden fees.",
       icon: <Zap className="text-blue-600" size={24} />,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-500 to-cyan-800",
       position: "left",
     },
     {
@@ -50,7 +50,7 @@ export default function DigitalBankingPage() {
       description:
         "Pay utilities, school fees, and subscriptions with one tap.",
       icon: <CreditCard className="text-purple-600" size={24} />,
-      color: "from-purple-500 to-pink-500",
+      color: "from-purple-500 to-pink-800",
       position: "left",
     },
     {
@@ -59,7 +59,7 @@ export default function DigitalBankingPage() {
       description:
         "Smart insights and spending analysis to help you save more.",
       icon: <BarChart className="text-emerald-600" size={24} />,
-      color: "from-emerald-500 to-teal-500",
+      color: "from-emerald-500 to-teal-800",
       position: "left",
     },
     {
@@ -67,7 +67,7 @@ export default function DigitalBankingPage() {
       title: "24/7 Support",
       description: "Round-the-clock customer support via chat, call, or email.",
       icon: <Clock className="text-amber-600" size={24} />,
-      color: "from-amber-500 to-orange-500",
+      color: "from-amber-500 to-orange-800",
       position: "right",
     },
     {
@@ -75,7 +75,7 @@ export default function DigitalBankingPage() {
       title: "Multi-Account",
       description: "Manage all your GTCCU accounts from a single dashboard.",
       icon: <Wallet className="text-rose-600" size={24} />,
-      color: "from-rose-500 to-red-500",
+      color: "from-rose-500 to-red-800",
       position: "right",
     },
     {
@@ -84,7 +84,7 @@ export default function DigitalBankingPage() {
       description:
         "Biometric login and two-factor authentication for maximum security.",
       icon: <ShieldCheck className="text-indigo-600" size={24} />,
-      color: "from-indigo-500 to-violet-500",
+      color: "from-indigo-500 to-violet-800",
       position: "right",
     },
   ];
@@ -125,7 +125,7 @@ export default function DigitalBankingPage() {
     },
     {
       id: 2,
-      src: "/images/phone2.png",
+      src: "/images/phone-1.png",
       alt: "GTCCU Mobile App Transactions",
       title: "Transactions",
       description: "Easy tracking and management",
@@ -212,7 +212,7 @@ export default function DigitalBankingPage() {
               <div className="relative rounded-[40px] p-4 ">
                 <div className="relative h-[full] overflow-hidden">
                   <img
-                    src="/images/phone1.png"
+                    src="/images/phone-1.png"
                     alt="GTCCU App Interface"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -342,7 +342,7 @@ export default function DigitalBankingPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/mobile-hero.webp"
+            src="/images/mobile-hero1.jpeg"
             alt="Digital banking background"
             className="
     w-full h-full
