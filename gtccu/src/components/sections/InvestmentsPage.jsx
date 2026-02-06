@@ -3,40 +3,58 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, TrendingUp, Shield, Target, BarChart } from "lucide-react";
 
 export default function InvestmentsPage() {
-  const investmentOptions = [
-    {
-      title: "Fixed Deposits",
-      return: "8-12%",
-      term: "6-60 months",
-      minAmount: "₵1,000",
-      features: ["Guanteed returns", "Flexible terms", "Monthly interest payout"],
-      risk: "Low"
-    },
-    {
-      title: "Mutual Funds",
-      return: "12-18%",
-      term: "3+ years",
-      minAmount: "₵500",
-      features: ["Professional management", "Diversified portfolio", "Regular income"],
-      risk: "Medium"
-    },
-    {
-      title: "Retirement Plans",
-      return: "10-15%",
-      term: "10+ years",
-      minAmount: "₵200/month",
-      features: ["Tax benefits", "Long-term growth", "Retirement income"],
-      risk: "Low-Medium"
-    },
-    {
-      title: "Education Funds",
-      return: "11-16%",
-      term: "5-15 years",
-      minAmount: "₵300/month",
-      features: ["Child education planning", "Systematic investment", "Goal-based"],
-      risk: "Medium"
-    }
-  ];
+ const investmentOptions = [
+  {
+    title: "Glo Save",
+    return: "Attractive savings yield",
+    term: "Flexible (no fixed lock-in)",
+    minAmount: "₵50",
+    features: [
+      "High-yield savings account",
+      "Easy deposits & withdrawals",
+      "Ideal for short- and medium-term goals"
+    ],
+    risk: "Low"
+  },
+  {
+    title: "Dividend on Shares",
+    return: "Annual dividends",
+    term: "Long-term membership",
+    minAmount: "₵100",
+    features: [
+      "Ownership in the Credit Union",
+      "Annual dividend payments",
+      "Voting rights & member benefits"
+    ],
+    risk: "Low-Medium"
+  },
+  {
+    title: "Interest on Savings",
+    return: "Competitive annual interest",
+    term: "Ongoing",
+    minAmount: "₵20",
+    features: [
+      "Interest earned on regular savings",
+      "Encourages consistent saving",
+      "Safe and reliable growth"
+    ],
+    risk: "Low"
+  },
+  {
+    title: "Credit Insurance",
+    return: "Loan protection benefit",
+    term: "Linked to loan duration",
+    minAmount: "Included with loan",
+    features: [
+      "Loan balance covered in unforeseen events",
+      "Protects family and guarantors",
+      "Peace of mind for members"
+    ],
+    risk: "Very Low"
+  }
+];
+
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -91,13 +109,7 @@ export default function InvestmentsPage() {
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-bold text-gray-800">{investment.title}</h3>
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  investment.risk === "Low" ? "bg-blue-100 text-blue-800" :
-                  investment.risk === "Medium" ? "bg-yellow-100 text-yellow-800" :
-                  "bg-red-100 text-red-800"
-                }`}>
-                  {investment.risk} Risk
-                </span>
+                
               </div>
               
               <div className="space-y-3 mb-4">

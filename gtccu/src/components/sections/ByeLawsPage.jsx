@@ -87,9 +87,9 @@ export default function ByeLawsPage() {
                 in accordance with cooperative principles and regulatory requirements.
               </p>
               
-              <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+              <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  <BookOpen className="w-6 h-6 mr-2 text-indigo-600" />
+                  <BookOpen className="w-6 h-6 mr-2 text-blue-600" />
                   Document Sections
                 </h3>
                 <div className="space-y-4">
@@ -99,7 +99,7 @@ export default function ByeLawsPage() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r"
+                      className="p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r"
                     >
                       <h4 className="font-semibold text-gray-800 mb-2">{section.title}</h4>
                       <p className="text-gray-600 text-sm">{section.content}</p>
@@ -117,13 +117,13 @@ export default function ByeLawsPage() {
             className="space-y-6"
           >
             {/* Download Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <div className="text-center mb-4">
-                <FileText className="w-12 h-12 text-indigo-600 mx-auto mb-3" />
+                <FileText className="w-12 h-12 text-blue-600 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Full Bye-laws Document</h3>
                 <p className="text-gray-600 text-sm mb-4">Download the complete governing document</p>
               </div>
-              <button className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors font-semibold flex items-center justify-center">
+              <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center cursor-pointer">
                 <Download className="w-5 h-5 mr-2" />
                 Download PDF
               </button>
@@ -132,13 +132,13 @@ export default function ByeLawsPage() {
             {/* Amendments Card */}
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <Scale className="w-5 h-5 mr-2 text-indigo-600" />
+                <Scale className="w-5 h-5 mr-2 text-blue-600" />
                 Recent Amendments
               </h3>
               <div className="space-y-3">
                 {amendments.map((amendment, index) => (
                   <div key={index} className="flex items-start py-2 border-b border-gray-100 last:border-b-0">
-                    <div className="bg-indigo-100 text-indigo-600 text-xs font-semibold px-2 py-1 rounded mr-3">
+                    <div className="bg-indigo-100 text-blue-600 text-xs font-semibold px-2 py-1 rounded mr-3">
                       {amendment.date}
                     </div>
                     <p className="text-gray-600 text-sm">{amendment.description}</p>
@@ -168,25 +168,25 @@ export default function ByeLawsPage() {
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Member Rights</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <div className="bg-green-100 text-green-600 rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-orange-100 text-orange-600 rounded-full p-1 mr-3 mt-1">
                     <span className="text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">Right to vote in elections and meetings</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-green-100 text-green-600 rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-orange-100 text-orange-600 rounded-full p-1 mr-3 mt-1">
                     <span className="text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">Access to financial services and products</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-green-100 text-green-600 rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-orange-100 text-orange-600 rounded-full p-1 mr-3 mt-1">
                     <span className="text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">Receive annual reports and financial statements</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-green-100 text-green-600 rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-orange-100 text-orange-600 rounded-full p-1 mr-3 mt-1">
                     <span className="text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">Participate in surplus distribution</span>
@@ -198,25 +198,25 @@ export default function ByeLawsPage() {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <div className="bg-blue-100 text-blue-600 rounded-full p-1 mr-3 mt-1">
-                    <span className="text-xs">•</span>
+                    <span className="text-md">•</span>
                   </div>
                   <span className="text-gray-700">Maintain share capital requirements</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-blue-100 text-blue-600 rounded-full p-1 mr-3 mt-1">
-                    <span className="text-xs">•</span>
+                    <span className="text-md">•</span>
                   </div>
                   <span className="text-gray-700">Participate in governance through voting</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-blue-100 text-blue-600 rounded-full p-1 mr-3 mt-1">
-                    <span className="text-xs">•</span>
+                    <span className="text-lg">•</span>
                   </div>
                   <span className="text-gray-700">Adhere to credit union policies and procedures</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-blue-100 text-blue-600 rounded-full p-1 mr-3 mt-1">
-                    <span className="text-xs">•</span>
+                    <span className="text-xl">•</span>
                   </div>
                   <span className="text-gray-700">Maintain financial obligations promptly</span>
                 </li>

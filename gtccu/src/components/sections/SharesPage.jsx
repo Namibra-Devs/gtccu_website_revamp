@@ -27,8 +27,8 @@ export default function SharesPage() {
   ];
 
   const shareRequirements = [
-    { requirement: "Minimum Share Purchase", value: "₵100" },
-    { requirement: "Maximum Share Holding", value: "₵10,000" },
+    { requirement: "Minimum Share Purchase", value: "₵300" },
+   
     { requirement: "Dividend Payment", value: "Annually" },
     { requirement: "Share Transfer", value: "Allowed to members" }
   ];
@@ -125,7 +125,7 @@ export default function SharesPage() {
                   <div className="bg-blue-100 text-blue-600 rounded-full p-2 mr-4">
                     <span className="font-bold">2</span>
                   </div>
-                  <p className="text-gray-600">Make initial share purchase (minimum ₵100)</p>
+                  <p className="text-gray-600">Make initial share purchase (minimum ₵300)</p>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-blue-100 text-blue-600 rounded-full p-2 mr-4">

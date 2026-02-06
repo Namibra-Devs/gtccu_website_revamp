@@ -22,6 +22,7 @@ import GalleryPage from "../components/sections/GalleryPage";
 import SavingsPage from "../features/SavingsPage";
 import DigitalBankingPage from "../features/DigitalBankingPage";
 import ScrollToTop from "../components/layout/ScrollToTop";
+import BudgetBusinessPlanPage from "../features/BudgetBusinessPlanPage";
 
 
 export default function AppRoutes() {
@@ -51,6 +52,7 @@ export default function AppRoutes() {
           <Route path="/services/savings" element={<SavingsPage />} />
           <Route path="/services/digital" element={<DigitalBankingPage />} />
           <Route path="/about/gallery" element={<GalleryPage />} />
+          <Route path="/badgets" element={<BudgetBusinessPlanPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

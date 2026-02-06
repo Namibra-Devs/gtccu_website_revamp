@@ -40,7 +40,7 @@ export default function SavingsPage() {
         "Start your savings journey with our flexible regular savings account. No minimum balance required, earn competitive interest.",
       features: [
         "No minimum balance",
-        "2.5% annual interest",
+      
         "Flexible deposits",
         "Free withdrawals",
       ],
@@ -70,7 +70,7 @@ export default function SavingsPage() {
     },
     {
       id: 3,
-      title: "Fixed Deposit",
+      title: "Glo Savings",
       subtitle: "Maximize your returns",
       description:
         "Lock in higher interest rates with our fixed deposit accounts. Choose from 3, 6, 12, or 24-month terms.",

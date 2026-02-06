@@ -42,39 +42,39 @@ export default function MobileAppSection() {
     { value: "99.9%", label: "Uptime" },
   ];
 
-  // Phone mockup images from public/images
+  // Phone mockup images - SIMPLIFIED positioning for cross-browser compatibility
   const phoneImages = [
     {
       id: 1,
-      src: "/images/phone-1.png", // Left phone (shortest)
+      src: "/images/phone1.png", // Left phone
       alt: "GTCCU Mobile App Dashboard",
-      height: "h-[400px] md:h-[480px]",
-      width: "w-[36%]",
-      position: "left-0",
-      transform: "translateX(-60%)",
-      zIndex: "z-30",
+      height: "h-[380px] md:h-[460px]",
+      width: "w-[180px] md:w-[220px]",
+      position: "md:left-[10%] left-[5%]", // Using fixed positioning
+      rotate: "-rotate-[10deg]",
+      zIndex: "z-20",
       delay: 0.5,
     },
     {
       id: 2,
-      src: "/images/phone1.png", // Middle phone
+      src: "/images/phone-1.png", // Middle phone
       alt: "GTCCU Mobile App Transactions",
-      height: "h-[450px] md:h-[520px]",
-      width: "w-[38%]",
-      position: "",
-      transform: "translateX(-30%)",
-      zIndex: "z-20",
+      height: "h-[420px] md:h-[500px]",
+      width: "w-[200px] md:w-[240px]",
+      position: "left-1/2 -translate-x-1/2", // Centered with transform
+      rotate: "",
+      zIndex: "z-30",
       delay: 0.4,
     },
     {
       id: 3,
-      src: "/images/phone-2.jpeg", // Right phone (tallest)
+      src: "/images/phone-2.jpeg", // Right phone
       alt: "GTCCU Mobile App Banking",
-      height: "h-[550px] md:h-[600px]",
-      width: "w-[40%]",
-      position: "right-0",
-      transform: "",
-      zIndex: "z-10",
+      height: "h-[380px] md:h-[460px]",
+      width: "w-[180px] md:w-[220px]",
+      position: "md:right-[10%] right-[5%]", // Using fixed positioning
+      rotate: "rotate-[10deg]",
+      zIndex: "z-20",
       delay: 0.3,
     },
   ];
@@ -104,11 +104,7 @@ export default function MobileAppSection() {
           <img
             src="/images/mobile-hero1.jpeg"
             alt="Digital banking background"
-            className="
-    w-full h-full
-    object-contain md:object-cover   // 👈 key fix
-    bg-[#1A1C47]
-  "
+            className="w-full h-full object-contain md:object-cover bg-[#1A1C47]"
             onError={(e) => {
               e.target.style.display = "none";
               const fallback = document.createElement("div");
@@ -167,8 +163,6 @@ export default function MobileAppSection() {
               <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-[#1A1C47] rounded-full" />
             </div>
 
-            {/* Title */}
-
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Banking in{" "}
               <span className="bg-gradient-to-r from-blue-800 to-[#1A1C47] bg-clip-text text-transparent">
@@ -176,7 +170,6 @@ export default function MobileAppSection() {
               </span>
             </h2>
 
-            {/* Description */}
             <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg">
               Experience the future of banking with our award-winning mobile
               app. Manage your finances anytime, anywhere with ultimate security
@@ -209,7 +202,7 @@ export default function MobileAppSection() {
               ))}
             </div>
 
-            {/* Download Buttons */}
+             {/* Download Buttons */}
             {/* <div className="space-y-4 mb-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -288,146 +281,90 @@ export default function MobileAppSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Side: Overlapping Phone Mockups */}
+          {/* Right Side: Overlapping Phone Mockups - SIMPLIFIED CROSS-BROWSER FIX */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative h-[500px] md:h-[700px] flex items-center justify-center"
+            className="relative h-[500px] md:h-[600px]"
           >
-            {/* Container for overlapping phones */}
-            <div className="relative w-full max-w-2xl mx-auto h-full flex items-end justify-center">
+            {/* Main container - FIXED for iOS */}
+            <div className="relative w-full h-full flex items-center justify-center">
               {phoneImages.map((phone, index) => (
                 <motion.div
                   key={phone.id}
                   initial={{
                     opacity: 0,
-                    y: 100 - index * 20,
-                    rotateY: 20 - index * 15,
+                    y: 100,
                   }}
-                  whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                  transition={{ duration: 0.8, delay: phone.delay }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: phone.delay,
+                    ease: "easeOut",
+                  }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10 - index * 5 }}
-                  className={`absolute ${phone.position} ${phone.zIndex}`}
+                  whileHover={{
+                    y: -10,
+                    transition: { duration: 0.3 }
+                  }}
+                  className={`absolute ${phone.position} ${phone.zIndex} ${phone.rotate} transform`}
                   style={{
-                    width: phone.width,
-                    transform: phone.transform,
+                    // iOS-specific fix for smooth transforms
+                    WebkitTransform: 'translateZ(0)', // Force hardware acceleration on iOS
+                    transformStyle: 'preserve-3d', // Better 3D rendering
+                    backfaceVisibility: 'hidden', // Prevent flickering
                   }}
                 >
-                  {/* Phone Container with Shadow and Border */}
-                  <div className="relative">
+                  {/* Phone Container */}
+                  <div className={`relative ${phone.width} ${phone.height}`}>
                     {/* Phone Frame */}
-                    <div className="relative  overflow-hidden">
+                    <div className="relative w-full h-full overflow-hidden rounded-2xl">
                       {/* Phone Screen */}
-                      <div
-                        className={`relative overflow-hidden rounded-2xl ${phone.height} `}
-                      >
-                        {/* Try to load actual image, fallback to gradient */}
+                      <div className="relative w-full h-full overflow-hidden">
                         <img
                           src={phone.src}
                           alt={phone.alt}
                           className="w-full h-full object-cover"
+                          style={{
+                            // iOS image rendering fix
+                            WebkitBackfaceVisibility: 'hidden',
+                            backfaceVisibility: 'hidden',
+                          }}
                           onError={(e) => {
-                            // If image fails to load, show fallback
                             e.target.style.display = "none";
-                            const fallback =
-                              e.target.parentNode.querySelector(
-                                ".image-fallback",
-                              );
-                            if (fallback) fallback.style.display = "flex";
+                            const fallbackDiv = document.createElement("div");
+                            fallbackDiv.className = `absolute inset-0 flex items-center justify-center bg-gradient-to-br ${fallbackContent[index].color}`;
+                            fallbackDiv.innerHTML = `
+                              <div class="text-center p-6">
+                                <div class="p-4 bg-white/20 rounded-2xl backdrop-blur-sm mb-4 inline-block">
+                                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                  </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">GTCCU Mobile</h3>
+                                <p class="text-blue-100">${fallbackContent[index].title} Screen</p>
+                              </div>
+                            `;
+                            e.target.parentNode.appendChild(fallbackDiv);
                           }}
                         />
-
-                        {/* Fallback Content if image doesn't exist */}
-                        <div
-                          className={`image-fallback hidden absolute inset-0 bg-gradient-to-br ${fallbackContent[index].color} items-center justify-center p-6`}
-                        >
-                          <div className="text-center">
-                            <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm mb-4 inline-block">
-                              <PhoneIcon className="text-white" size={32} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">
-                              GTCCU Mobile
-                            </h3>
-                            <p className="text-blue-100">
-                              {fallbackContent[index].title} Screen
-                            </p>
-
-                            {/* Quick info for fallback */}
-                            {index === 0 && (
-                              <div className="mt-4 grid grid-cols-2 gap-3">
-                                <div className="p-2 bg-white/10 rounded-xl">
-                                  <div className="text-white text-xs">
-                                    Balance
-                                  </div>
-                                  <div className="text-white font-bold">
-                                    ₵12,456
-                                  </div>
-                                </div>
-                                <div className="p-2 bg-white/10 rounded-xl">
-                                  <div className="text-white text-xs">
-                                    Income
-                                  </div>
-                                  <div className="text-emerald-300 font-bold">
-                                    +₵4,320
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {index === 1 && (
-                              <div className="mt-4 space-y-2">
-                                {[
-                                  "Payment to John",
-                                  "Bill Payment",
-                                  "Fund Transfer",
-                                ].map((item, i) => (
-                                  <div
-                                    key={i}
-                                    className="flex items-center justify-between p-2 bg-white/10 rounded-lg"
-                                  >
-                                    <span className="text-white text-sm">
-                                      {item}
-                                    </span>
-                                    <span className="text-rose-300 text-sm">
-                                      -₵{50 + i * 100}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-
-                            {index === 2 && (
-                              <div className="mt-4">
-                                <div className="text-white text-lg font-bold mb-2">
-                                  Quick Actions
-                                </div>
-                                <div className="grid grid-cols-2 gap-2">
-                                  {["Pay", "Transfer", "Deposit", "More"].map(
-                                    (action) => (
-                                      <button
-                                        key={action}
-                                        className="p-2 bg-white/10 rounded-lg text-white text-sm hover:bg-white/20"
-                                      >
-                                        {action}
-                                      </button>
-                                    ),
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
                       </div>
+                      
+                      
                     </div>
 
-                   
+                    
                   </div>
                 </motion.div>
               ))}
             </div>
+            
+           
           </motion.div>
         </div>
       </div>

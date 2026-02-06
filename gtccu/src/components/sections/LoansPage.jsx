@@ -6,33 +6,33 @@ export default function LoansPage() {
   const loanTypes = [
     {
       title: "Personal Loans",
-      rate: "12.5%",
-      amount: "Up to ₵50,000",
-      term: "1-5 years",
+   
+      amount: "Up to ₵100,000",
+      term: "36 Months",
       features: ["Flexible repayment", "No collateral required", "Quick approval"],
       icon: <DollarSign className="w-8 h-8" />
     },
     {
       title: "Education Loans",
-      rate: "9.5%",
-      amount: "Up to ₵30,000",
-      term: "1-7 years",
+      
+      amount: "Up to ₵50,000",
+      term: "36 Months",
       features: ["Low interest rates", "Grace period after studies", "No hidden fees"],
       icon: <Shield className="w-8 h-8" />
     },
     {
       title: "Home Improvement Loans",
-      rate: "11%",
-      amount: "Up to ₵100,000",
-      term: "1-10 years",
+     
+      amount: "Up to ₵50,000",
+      term: "36 Months",
       features: ["Home renovation", "Property purchase", "Construction projects"],
       icon: <CheckCircle className="w-8 h-8" />
     },
     {
       title: "Emergency Loans",
-      rate: "10%",
-      amount: "Up to ₵20,000",
-      term: "6-24 months",
+   
+      amount: "Up to ₵3,000",
+      term: "1 month",
       features: ["Same-day approval", "Minimal documentation", "Flexible terms"],
       icon: <Clock className="w-8 h-8" />
     }

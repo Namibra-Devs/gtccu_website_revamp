@@ -208,6 +208,11 @@ export default function Navbar() {
           icon: <FileText size={16} />,
         },
         {
+          name: "Budgets",
+          path: "/badgets",
+          icon: <FileText size={16} />,
+        },
+        {
           name: "News",
           path: "/news",
           icon: <Newspaper size={16} />,
