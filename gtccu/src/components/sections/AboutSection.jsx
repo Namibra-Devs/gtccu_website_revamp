@@ -70,7 +70,7 @@ export default function AboutSection() {
     },
     {
       id: 2,
-      image: "/images/card2.jpeg",
+      image: "/images/card2.webp",
       icon: <DollarSign size={24} />,
       title: "Affordable Loans",
       description: "Flexible loan packages with low interest rates and convenient repayment terms for all needs.",
@@ -80,7 +80,7 @@ export default function AboutSection() {
     },
     {
       id: 3,
-      image: "/images/cardz.png",
+      image: "/images/cardz.webp",
       icon: <Smartphone size={24} />,
       title: "Digital Banking",
       description: "Access your accounts 24/7 with our secure mobile and online banking platforms.",

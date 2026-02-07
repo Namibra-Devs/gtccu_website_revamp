@@ -38,38 +38,16 @@ export default function SavingsPage() {
       subtitle: "Build your financial foundation",
       description:
         "Start your savings journey with our flexible regular savings account. No minimum balance required, earn competitive interest.",
-      features: [
-        "No minimum balance",
-      
-        "Flexible deposits",
-        "Free withdrawals",
-      ],
+      features: ["No minimum balance", "Flexible deposits", "Free withdrawals"],
       icon: <Banknote className="text-blue-600" size={24} />,
       color: "from-blue-500 to-cyan-800",
       minAmount: "₵50",
       interestRate: "2.5% p.a.",
       badge: "Most Popular",
     },
+
     {
       id: 2,
-      title: "Goal-Based Savings",
-      subtitle: "Achieve your dreams faster",
-      description:
-        "Set specific financial goals and watch your savings grow with higher interest rates for committed savers.",
-      features: [
-        "Higher interest rates",
-        "Goal tracking dashboard",
-        "Auto-save options",
-        "Progress notifications",
-      ],
-      icon: <Target className="text-purple-600" size={24} />,
-      color: "from-purple-500 to-pink-800",
-      minAmount: "₵200",
-      interestRate: "3.8% p.a.",
-      badge: "High Yield",
-    },
-    {
-      id: 3,
       title: "Glo Savings",
       subtitle: "Maximize your returns",
       description:
@@ -86,59 +64,24 @@ export default function SavingsPage() {
       interestRate: "5.2% p.a.",
       badge: "Best Returns",
     },
+
     {
-      id: 4,
-      title: "Children's Savings",
-      subtitle: "Secure your child's future",
+      id: 3,
+      title: "Youth Savings",
+      subtitle: "Save smart. Grow confident.",
       description:
-        "Special savings account designed for children with bonus interest and educational benefits.",
+        "A flexible savings account designed to help young people build strong money habits early, earn competitive interest, and save towards future goals with ease.",
       features: [
-        "Bonus interest for minors",
-        "Educational rewards",
-        "Parental controls",
-        "Financial literacy tools",
+        "Attractive interest rates",
+        "Easy deposits & withdrawals",
+        "Savings goals for school & projects",
+        "Mobile app monitoring",
       ],
-      icon: <Users className="text-amber-600" size={24} />,
-      color: "from-amber-500 to-orange-800",
-      minAmount: "₵20",
-      interestRate: "3.0% p.a.",
-      badge: "Family Friendly",
-    },
-    {
-      id: 5,
-      title: "Senior Citizens",
-      subtitle: "Rewarding golden years",
-      description:
-        "Exclusive savings plan for senior citizens with enhanced benefits and special privileges.",
-      features: [
-        "Enhanced interest rates",
-        "Priority services",
-        "Free insurance coverage",
-        "Healthcare benefits",
-      ],
-      icon: <Award className="text-rose-600" size={24} />,
-      color: "from-rose-500 to-red-800",
-      minAmount: "₵100",
-      interestRate: "4.0% p.a.",
-      badge: "Senior Exclusive",
-    },
-    {
-      id: 6,
-      title: "Digital Savings",
-      subtitle: "Smart banking for modern life",
-      description:
-        "Fully digital savings account with automated features and AI-powered financial insights.",
-      features: [
-        "AI savings assistant",
-        "Auto-roundup savings",
-        "Smart notifications",
-        "Digital statements only",
-      ],
-      icon: <Smartphone className="text-indigo-600" size={24} />,
-      color: "from-indigo-500 to-violet-800",
+      icon: <Target className="text-purple-600" size={24} />,
+      color: "from-purple-500 to-pink-800",
       minAmount: "₵50",
-      interestRate: "2.8% p.a.",
-      badge: "Tech Forward",
+      interestRate: "3.5% p.a.",
+      badge: "Youth Focused",
     },
   ];
 
@@ -428,14 +371,21 @@ export default function SavingsPage() {
                           {plan.minAmount}
                         </div>
                       </div>
-                      <div className="bg-gray-50 rounded-xl p-3 text-center">
-                        <div className="text-sm text-gray-500 mb-1">
-                          Interest Rate
+                      <a
+                        href={`mailto:info@gtccu.com?subject=Interest Rate Enquiry – ${plan.title}&body=Hello GTCCU Team,%0D%0A%0D%0AI would like to know the current interest rate for the ${plan.title} plan.%0D%0A%0D%0AThank you.`}
+                        className="block bg-gradient-to-r from-blue-600 to-[#1A1C47] rounded-xl p-3 text-center transition-all duration-300 hover:scale-[1.03] hover:shadow-md"
+                      >
+                        <div className="text-sm text-blue-100 mb-1">
+                          Want the interest rate?
                         </div>
-                        <div className="text-lg font-bold text-gray-900">
-                          {plan.interestRate}
+                        <div className="text-lg font-bold text-white flex items-center justify-center gap-2">
+                          Contact Us
+                          <ArrowRight
+                            size={18}
+                            className="transition-transform group-hover:translate-x-1"
+                          />
                         </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
 

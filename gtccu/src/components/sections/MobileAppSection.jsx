@@ -46,7 +46,7 @@ export default function MobileAppSection() {
   const phoneImages = [
     {
       id: 1,
-      src: "/images/phone1.png", // Left phone
+      src: "/images/phone1.webp", // Left phone
       alt: "GTCCU Mobile App Dashboard",
       height: "h-[380px] md:h-[460px]",
       width: "w-[180px] md:w-[220px]",

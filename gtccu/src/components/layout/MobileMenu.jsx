@@ -64,6 +64,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
       "Loans & Financing": <CreditCard size={20} />,
       "Investments": <TrendingUp size={20} />,
       "Shares": <PieChart size={20} />,
+      "Budgets": <PieChart size={20} />,
       "Savings Accounts": <Wallet size={20} />,
       "About": <Building size={22} />,
       "About Us": <Building size={22} />,
@@ -77,6 +78,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
       "Jobs": <Briefcase size={20} />,
       "Policies": <Shield size={20} />,
       "Bye-laws": <FileCode size={20} />,
+      "Mobile Banking": <Phone size={20} />,
       "Contact": <Phone size={22} />,
       "Contact Us": <Phone size={22} />
     };

@@ -118,7 +118,7 @@ export default function DigitalBankingPage() {
   const phoneImages = [
     {
       id: 1,
-      src: "/images/phone1.png",
+      src: "/images/phone1.webp",
       alt: "GTCCU Mobile App Dashboard",
       title: "Dashboard View",
       description: "Complete overview of your finances",
